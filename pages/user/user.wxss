@@ -1,1 +1,80 @@
-/* pages/user/user.wxss */
+page {
+  background-color: var(--backColor);
+  color: var(--fontColor);
+  letter-spacing: 2rpx;
+}
+.user_info_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30rpx 0;
+  padding: 40rpx 20rpx 40rpx 40rpx;
+  background-color: #fff;
+}
+.user_info_wrap .text_left {
+  flex: 9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.user_info_wrap .text_left .user_img {
+  flex: 2;
+  overflow: hidden;
+}
+.user_info_wrap .text_left .user_img image {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 90%;
+}
+.user_info_wrap .text_left .user_intro {
+  flex: 5;
+}
+.user_info_wrap .text_left .user_intro .user_name {
+  font-weight: 600;
+  font-size: 38rpx;
+}
+.user_info_wrap .text_left .user_intro .user_introduction {
+  margin-top: 10rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.user_info_wrap .iconfont {
+  flex: 1;
+  text-align: right;
+}
+.user_communicate {
+  margin: 30rpx 0;
+}
+.user_communicate .user_communicate_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 35rpx 20rpx 35rpx 30rpx;
+  border-bottom: 1rpx solid var(--backColor);
+}
+.user_communicate .user_communicate_wrap .text_left {
+  color: var(--fontColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_communicate .user_communicate_wrap .text_left .iconfont {
+  margin-right: 20rpx;
+}
+.user_communicate .user_communicate_wrap .text_left .text {
+  font-size: 34rpx;
+}
+.user_setting_wrap {
+  padding: 35rpx 20rpx 35rpx 30rpx;
+  background-color: #ffffff;
+  text-align: center;
+  color: var(--themeColor);
+  font-size: 34rpx;
+  margin: 30rpx 0;
+}
+.iconright {
+  color: var(--arrowColor);
+}

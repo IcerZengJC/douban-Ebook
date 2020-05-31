@@ -1,2 +1,69 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="user_info_wrap">
+  <view class="text_left">
+    <view class="user_img">
+      <image mode="widthFix" src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1388647394,240988450&fm=111&gp=0.jpg" />
+    </view>
+    <view class="user_intro">
+      <view class="user_name">呜啦啦</view>
+      <view class="user_introduction">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, voluptatum magnam? Expedita, maxime? Laudantium, voluptatibus fuga blanditiis magnam minima dignissimos cumque hic nesciunt quae voluptates nihil rem saepe id aliquid?
+      </view>
+    </view>
+  </view>
+  <view class="iconfont iconright"></view>
+</view>
+<view class="user_communicate">
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconselection"></text>
+      <text class="text">我的称号</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconfavor_light"></text>
+      <text class="text">我的收藏</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconcomment"></text>
+      <text class="text">我的观点</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+</view>
+<view class="user_communicate">
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconmail"></text>
+      <text class="text">我的消息</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconfriendfavor"></text>
+      <text class="text">我关注的用户</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconfriend"></text>
+      <text class="text">关注我的用户</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+  <view class="user_communicate_wrap">
+    <view class="text_left">
+      <text class="iconfont iconappreciate"></text>
+      <text class="text">我赞过的观点</text>
+    </view>
+    <view class="iconfont iconright"></view>
+  </view>
+</view>
+<navigator class="user_setting_wrap" url="/pages/setting/setting">设置</navigator>
+

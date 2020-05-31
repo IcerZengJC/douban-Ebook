@@ -1,0 +1,47 @@
+<view class="setting_notice_wrap">
+  <view class="notice_text">
+    <view class="notice_title">通知</view>
+    <view class="notice_detail">打开通知，会第一时间收到和你有关的消息</view>
+  </view>
+  <switch color="#66af9e" />
+</view>
+<view class="setting_manage_wrap">
+  <view class="notice_function">
+    <view class="function_left">清理缓存</view>
+    <view class="function_right">
+      <view class="function_right_value">123.4K</view>
+      <view class="iconfont iconright"></view>
+    </view>
+  </view>
+  <view class="notice_function">
+    <view class="function_left">关于我们</view>
+    <view class="function_right">
+      <view class="function_right_value">v 2.1.1</view>
+      <view class="iconfont iconright"></view>
+    </view>
+  </view>
+  <view class="notice_function">
+    <view class="function_left">把ETalk分享给朋友</view>
+    <view class="function_right">
+      <view class="iconfont iconright"></view>
+    </view>
+    <!-- 定义一个button按钮，但是css样式设置让其点击区域为父组件并消失 -->
+    <button open-type="share"></button>
+  </view>
+  <view class="notice_function">
+    <view class="function_left">联系我们</view>
+    <view class="function_right">
+      <view class="function_right_value">0791-xxxxxxxx</view>
+      <view class="iconfont iconright"></view>
+    </view>
+    <button open-type="contact"></button>
+  </view>
+  <!-- 后续改成navigator -->
+  <navigator class="notice_function" url="/pages/feedback/feedback">
+    <view class="function_left">意见反馈</view>
+    <view class="function_right">
+      <view class="iconfont iconright"></view>
+    </view>
+  </navigator>
+</view>
+<navigator class="user_loginout_wrap">退出登录</navigator>

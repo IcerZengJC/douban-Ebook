@@ -4,6 +4,8 @@
     "pages/find/find",
     "pages/search/search",
     "pages/user/user",
+    "pages/setting/setting",
+    "pages/feedback/feedback",
     "pages/community/community"
   ],
   "window":{

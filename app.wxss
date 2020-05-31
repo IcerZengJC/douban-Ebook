@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "./style/iconfont.wxss";
+@import "./style/font.wxss";
 
 page,
 view,
@@ -16,8 +17,12 @@ navigator {
 /* 主题颜色 */
 page {
   --themeColor: #66af9e;
+  --backColor: #f6f6f6;
+  --arrowColor: #909090;
+  --fontColor: #303030;
   /* 1px = 2rpx */
-  font-size: 28rpx;
+  font-size: 34rpx;
+  font-family: "FZFangJunHeiS";
 }
 
 image {
