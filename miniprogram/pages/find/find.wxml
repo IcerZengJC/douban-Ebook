@@ -1,8 +1,9 @@
 <view class="btn_wrap">
   <!-- <button></button> -->
-  <block wx:if="{{inputShow}}">
+  <input placeholder-class="iconfont iconsearch_light" placeholder=" 请输入进行搜索" hidden="{{inputShow}}"></input>
+  <!-- <block wx:if="{{inputShow}}">
     <input placeholder-class="iconfont iconsearch_light" placeholder=" 请输入进行搜索"></input>
-  </block>
+  </block> -->
   <view class="iconfont iconsearch_light" bind:tap="handleInputShow">
     <view class="cover"></view>
   </view>
@@ -10,6 +11,7 @@
     <view class="cover"></view>
   </view>
 </view>
+<view class="x" hidden="{{inputShow}}">123</view>
 <view class="find_cart">
   &#xe7da;
   <view class="find_cart_wrap"></view>
