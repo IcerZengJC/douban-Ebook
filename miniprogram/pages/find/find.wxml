@@ -1,0 +1,16 @@
+<view class="btn_wrap">
+  <!-- <button></button> -->
+  <block wx:if="{{inputShow}}">
+    <input placeholder-class="iconfont iconsearch_light" placeholder=" 请输入进行搜索"></input>
+  </block>
+  <view class="iconfont iconsearch_light" bind:tap="handleInputShow">
+    <view class="cover"></view>
+  </view>
+  <view class="iconfont iconlist">
+    <view class="cover"></view>
+  </view>
+</view>
+<view class="find_cart">
+  &#xe7da;
+  <view class="find_cart_wrap"></view>
+</view>

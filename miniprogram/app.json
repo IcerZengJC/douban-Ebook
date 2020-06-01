@@ -37,8 +37,8 @@
       {
         "pagePath": "pages/find/find",
         "text": "发现",
-        "iconPath": "./icons/find.png",
-        "selectedIconPath": "./icons/find_fill.png"
+        "iconPath": "./icons/compass.png",
+        "selectedIconPath": "./icons/compass_fill.png"
       },
       {
         "pagePath": "pages/user/user",
