@@ -5,6 +5,7 @@ Page({
    */
   data: {
     inputShow: true,
+    listShow: true,
   },
 
   /**
@@ -12,9 +13,13 @@ Page({
    */
   onLoad: function (options) {},
   handleInputShow() {
-    const { inputShow } = this.data;
     this.setData({
-      inputShow: !inputShow,
+      inputShow: !this.data.inputShow,
+    });
+  },
+  handleListShow() {
+    this.setData({
+      listShow: !this.data.listShow,
     });
   },
 });
