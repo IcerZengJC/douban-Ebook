@@ -26,7 +26,7 @@ Page({
           })
         } else {
           this.setData({
-            modalShow: true,
+            modelShow: true,
           })
         }
       }

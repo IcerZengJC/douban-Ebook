@@ -23,6 +23,8 @@
 
 
 
-<x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess"bind:loginfail="onLoginFail">
-</x-login>
+<x-login modelShow="{{modelShow}}"
+bind:loginsuccess="onLoginSuccess"
+bind:loginfail="onLoginFail"
+/>
 </view>

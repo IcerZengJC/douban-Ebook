@@ -1,4 +1,4 @@
-<x-bottom-model modelShow="{{modelShow}}">
+<x-bottom-model modelShow="{{modelShow}}" footerBottom="{{footerBottom}}">
   <view slot="model-content">
     <button class="login" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">获取微信授权信息</button>
   </view>

@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "x-login":"/components/login/login"
+  },
   "navigationBarTitleText": "我的"
 }

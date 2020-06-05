@@ -1,3 +1,5 @@
+
+
 {
   "pages":[
     "pages/index/index",
@@ -9,7 +11,9 @@
     "pages/community/community",
     "pages/blog/blog",
     "pages/blog-comment/blog-comment",
-    "pages/blog-edit/blog-edit"
+    "pages/blog-edit/blog-edit",
+    "pages/user-readhistory/user-readhistory",
+    "pages/user-bloghisotry/user-bloghistory"
   ],
   "window":{
     "backgroundTextStyle":"light",
