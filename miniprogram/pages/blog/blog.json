@@ -1,10 +1,10 @@
 {
   "usingComponents": {
-    "x-search" : "/components/search/search",
-    "x-login":"/components/login/login",
-    "x-blog-card":"/components/blog-card/blog-card",
-    "x-blog-ctrl":"/components/blog-ctrl/blog-ctrl"
+    "x-search": "/components/search/search",
+    "x-login": "/components/login/login",
+    "x-blog-card": "/components/blog-card/blog-card",
+    "x-blog-ctrl": "/components/blog-ctrl/blog-ctrl"
   },
-  "navigationBarTitleText":"讨论",
-  "enablePullDownRefresh":true
+  "navigationBarTitleText": "ETalk社区",
+  "enablePullDownRefresh": true
 }

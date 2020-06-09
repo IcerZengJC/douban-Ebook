@@ -1,18 +1,38 @@
-/**index.wxss**/
-.userinfo {
+.container {
+  border-top: 1rpx solid #dedede;
+}
+.container swiper {
+  margin-top: 50rpx;
+  overflow: visible;
+  height: 600rpx;
+}
+.container swiper .book_item {
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.container swiper .book_item .slide_image {
+  border-radius: 10rpx;
 }
-.userinfo-nickname {
-  color: #aaa;
+.container swiper .book_item .zoom_out {
+  transform: scale(0.8);
+  transition: all 0.7s ease-out 0s;
 }
-.usermotto {
-  margin-top: 200px;
+.container swiper .book_item .zoom_in {
+  transform: scale(1);
+  transition: all 0.7s ease-in 0s;
+}
+.container .book_intro {
+  text-align: center;
+}
+.container .book_intro .book_title {
+  padding: 20rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+  color: var(--fontColor);
+}
+.container .book_intro .book_description {
+  padding: 10rpx;
+  color: var(--arrowColor);
 }

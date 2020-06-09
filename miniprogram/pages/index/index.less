@@ -1,21 +1,41 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.container {
+  border-top: 1rpx solid #dedede;
+  swiper {
+    margin-top: 50rpx;
+    overflow: visible;
+    height: 600rpx;
+    .book_item {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .slide_image {
+        border-radius: 10rpx;
+      }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
+      .zoom_out {
+        transform: scale(0.8);
+        transition: all 0.7s ease-out 0s;
+      }
 
-.userinfo-nickname {
-  color: #aaa;
-}
+      .zoom_in {
+        transform: scale(1);
+        transition: all 0.7s ease-in 0s;
+      }
+    }
+  }
+  .book_intro {
+    text-align: center;
 
-.usermotto {
-  margin-top: 200px;
+    .book_title {
+      padding: 20rpx;
+      font-size: 38rpx;
+      font-weight: 600;
+      color: var(--fontColor);
+    }
+    .book_description {
+      padding: 10rpx;
+      color: var(--arrowColor);
+    }
+  }
 }

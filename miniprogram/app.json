@@ -1,21 +1,23 @@
 {
-  "pages":[
+  "cloud":true,
+  "pages": [
     "pages/index/index",
     "pages/find/find",
     "pages/search/search",
     "pages/user/user",
     "pages/setting/setting",
     "pages/feedback/feedback",
-    "pages/community/community",
+    "pages/classify/classify",
     "pages/blog/blog",
+    "pages/book/book",
     "pages/blog-comment/blog-comment",
     "pages/blog-edit/blog-edit"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999",
@@ -32,22 +34,22 @@
         "selectedIconPath": "./icons/home_fill_light.png"
       },
       {
-        "pagePath": "pages/community/community",
+        "pagePath": "pages/classify/classify",
         "text": "分类",
-        "iconPath": "./icons/community_light.png",
-        "selectedIconPath": "./icons/community_fill_light.png"
+        "iconPath": "./icons/classify.png",
+        "selectedIconPath": "./icons/classify_fill.png"
       },
       {
         "pagePath": "pages/find/find",
-        "text": "发现",
-        "iconPath": "./icons/compass.png",
-        "selectedIconPath": "./icons/compass_fill.png"
+        "text": "探索",
+        "iconPath": "./icons/discover.png",
+        "selectedIconPath": "./icons/discover_fill.png"
       },
       {
         "pagePath": "pages/blog/blog",
-        "text": "论坛",
-        "iconPath": "./icons/compass.png",
-        "selectedIconPath": "./icons/compass_fill.png"
+        "text": "社区",
+        "iconPath": "./icons/community_light.png",
+        "selectedIconPath": "./icons/community_fill_light.png"
       },
       {
         "pagePath": "pages/user/user",

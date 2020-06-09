@@ -1,0 +1,86 @@
+page {
+  position: relative;
+}
+.book_box {
+  position: relative;
+  margin: 30rpx auto 0;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: #666 0px 0px 5px; //将h-shadow,v-shadow设为0px,实现四周阴影
+  width: 95%;
+  height: 1000rpx;
+  background-color: #fcfcfc;
+  // background-color: #ffd;
+  border-bottom: 1rpx solid #dedede;
+  .top_toolbar {
+    width: 100%;
+    height: 50rpx;
+    background-color: #fff;
+    z-index: 100;
+    font-size: 32rpx;
+    color: var(--arrowColor);
+  }
+  .top_toolbar::before {
+    content: "|";
+    color: var(--themeColor);
+    padding: 0 15rpx;
+    font-weight: bold;
+  }
+  .book_content {
+    position: relative;
+    height: 950rpx;
+    padding: 0 15rpx;
+    .chapter_title {
+      padding: 0;
+      margin: 0;
+    }
+    .chapter_content {
+      padding-top: 15rpx;
+    }
+  }
+}
+
+// .left_toolbar {
+//   position: fixed;
+//   left: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   background-color: #f0f;
+//   width: 50rpx;
+//   height: 100rpx;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 10;
+// }
+.left_toolbar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: 40%;
+  background-color: #bfa;
+  border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: visible;
+  margin-right: 80vw;
+}
+// .left_toolbar::before {
+//   position: fixed;
+//   transform: translateY(-50%);
+//   top: 50%;
+//   left: 0;
+//   width: 0;
+//   height: 0;
+//   z-index: 30;
+//   border-width: 20px;
+//   border-style: solid;
+//   border-color: transparent transparent #933 transparent;
+// }
+.btm_toolbar {
+}

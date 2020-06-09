@@ -6,17 +6,24 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
 		"coverView": true,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
 		"checkSiteMap": false,
-		"scopeDataCheck": false
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.1",
@@ -28,6 +35,7 @@
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -71,6 +79,19 @@
 					"name": "发现",
 					"pathName": "pages/find/find",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类页面",
+					"pathName": "pages/classify/classify",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "书籍",
+					"pathName": "pages/book/book",
 					"scene": null
 				}
 			]

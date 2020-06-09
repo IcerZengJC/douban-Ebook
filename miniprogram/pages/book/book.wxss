@@ -1,0 +1,57 @@
+page {
+  position: relative;
+}
+.book_box {
+  position: relative;
+  margin: 30rpx auto 0;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: #666 0px 0px 5px;
+  width: 95%;
+  height: 1000rpx;
+  background-color: #fcfcfc;
+  border-bottom: 1rpx solid #dedede;
+}
+.book_box .top_toolbar {
+  width: 100%;
+  height: 50rpx;
+  background-color: #fff;
+  z-index: 100;
+  font-size: 32rpx;
+  color: var(--arrowColor);
+}
+.book_box .top_toolbar::before {
+  content: "|";
+  color: var(--themeColor);
+  padding: 0 15rpx;
+  font-weight: bold;
+}
+.book_box .book_content {
+  position: relative;
+  height: 950rpx;
+  padding: 0 15rpx;
+}
+.book_box .book_content .chapter_title {
+  padding: 0;
+  margin: 0;
+}
+.book_box .book_content .chapter_content {
+  padding-top: 15rpx;
+}
+.left_toolbar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: 40%;
+  background-color: #bfa;
+  border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: visible;
+  margin-right: 80vw;
+}

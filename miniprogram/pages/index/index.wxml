@@ -1,15 +1,19 @@
 <!-- index.wxml -->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-      获取头像昵称
-    </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="toolbar"></view>
+  <swiper interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}" circular="{{circular}}" bindchange="swiperBindchange">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <view class="book_item" bind:tap="handleOpenBook">
+          <image mode="heightFix" src="{{item}}" class="slide_image {{currentSwiperIndex == index ? 'zoom_in' : 'zoom_out'}}" />
+        </view>
+      </swiper-item>
     </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  </swiper>
+  <view class="book_intro">
+    <view class="bookTitle">{{bookInfo[currentSwiperIndex].bookTitle}}</view>
+    <view class="bookDescription" wx:for="{{bookInfo[currentSwiperIndex].bookDescription}}" wx:key="indexs" wx:for-item="items" wx:for-index="indexs">
+      {{items}}
+    </view>
   </view>
 </view>
