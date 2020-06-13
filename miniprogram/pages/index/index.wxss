@@ -1,38 +1,96 @@
 .container {
   border-top: 1rpx solid #dedede;
+  overflow: visible;
 }
 .container swiper {
   margin-top: 50rpx;
   overflow: visible;
-  height: 600rpx;
+  height: 700rpx;
+  position: relative;
 }
-.container swiper .book_item {
-  height: 100%;
+.container swiper swiper-item {
+  overflow: visible;
+}
+.container swiper swiper-item .book_item {
+  height: 600rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: visible;
+  z-index: 5;
 }
-.container swiper .book_item .slide_image {
+.container swiper swiper-item .book_item .slide_image {
   border-radius: 10rpx;
+  position: relative;
+  overflow: visible;
 }
-.container swiper .book_item .zoom_out {
+.container swiper swiper-item .book_item .slide_image .bookTag {
+  position: absolute;
+  overflow: visible;
+  width: 150rpx;
+  height: 150rpx;
+  bottom: 0;
+  right: 0;
+  transform: rotate(-35deg) translate(10%, 60%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--themeColor);
+  opacity: 0.7;
+  z-index: 100;
+  color: white;
+}
+.container swiper swiper-item .book_item .slide_image .bookTag::before {
+  content: "";
+  position: absolute;
+  overflow: visible;
+  width: 130rpx;
+  height: 130rpx;
+  transform: translate(-5rpx, -5rpx);
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  border: 5rpx solid white;
+  background-color: var(--themeColor);
+  z-index: -1;
+}
+.container swiper swiper-item .book_item .slide_image .short_tag {
+  font-size: 23rpx;
+}
+.container swiper swiper-item .book_item .zoom_out {
   transform: scale(0.8);
   transition: all 0.7s ease-out 0s;
 }
-.container swiper .book_item .zoom_in {
+.container swiper swiper-item .book_item .zoom_in {
   transform: scale(1);
   transition: all 0.7s ease-in 0s;
 }
-.container .book_intro {
-  text-align: center;
-}
 .container .book_intro .book_title {
+  text-align: center;
   padding: 20rpx;
   font-size: 38rpx;
   font-weight: 600;
   color: var(--fontColor);
 }
+.container .book_intro .book_author {
+  text-align: center;
+  padding: 20rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--fontColor);
+}
 .container .book_intro .book_description {
-  padding: 10rpx;
+  text-align: left;
+  padding: 10rpx 40rpx;
   color: var(--arrowColor);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-indent: 2em;
+}
+.container .book_intro .text_center {
+  text-align: center;
+  text-indent: 0;
 }

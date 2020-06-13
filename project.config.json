@@ -92,6 +92,20 @@
 					"id": -1,
 					"name": "书籍",
 					"pathName": "pages/book/book",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/classify/classify",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "探索",
+					"pathName": "pages/find/find",
 					"scene": null
 				}
 			]

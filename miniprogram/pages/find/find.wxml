@@ -2,15 +2,17 @@
 <!-- 搜索按钮实现搜索功能，排序按钮实现-最新/最热 card排序 -->
 <view class="btn_wrap">
   <!-- <button></button> -->
-  <input class='animated bounceInRight' placeholder="请输入关键词进行搜索" hidden="{{inputShow}}"></input>
-  <!-- <block wx:if="{{inputShow}}">
-    <input placeholder-class="iconfont iconsearch_light" placeholder=" 请输入进行搜索"></input>
-  </block> -->
+  <!-- <input class='animated fadeInRight' placeholder-class="iconfont iconsearch_light" placeholder="请输入关键词进行搜索" hidden="{{inputShow}}"></input> -->
+  <block wx:if="{{inputShow}}">
+    <input value="{{inpValue}}" bindinput="handleInput" placeholder=" 请输入进行搜索" placeholder-class="iconfont iconsearch_light">
+      <text class="iconfont iconroundclose" bindtap="handleCancel" hidden="{{!isFocus}}"></text>
+    </input>
+  </block>
   <view class="btn_item iconfont iconsearch_light" bind:tap="handleInputShow">
-    <view class="list_cover"></view>
+    <!-- <view class="list_cover"></view> -->
   </view>
   <view class="btn_item iconfont iconlist" bind:tap="handleListShow">
-    <view class="list_cover"></view>
+    <!-- <view class="list_cover"></view> -->
     <view class="toollist" hidden="{{listShow}}">
       <view class="tool_wrap">
         <text class="iconfont iconicon-test"></text>
@@ -27,58 +29,22 @@
 <!-- 书单列表开始 -->
 <!-- 后续这个一开始有一系列的推荐card(默认List)，用户搜索之后才获取用户所需cart -->
 <view class="find_cart">
-  <view class="find_cart_wrap">
+  <view class="find_cart_wrap" wx:for="{{bookList}}">
     <view class="find_cart_img">
-      <image mode="widthFix" src="http://img4.imgtn.bdimg.com/it/u=1188387633,958216909&fm=26&gp=0.jpg" />
+      <image mode="widthFix" src="{{item.image}}" />
     </view>
     <view class="find_cart_text">
-      <view class="find_cart_title">请示海洋</view>
-      <view class="find_cart_intro">
-        请输入关键词进行搜请输入关键词进行搜请输入关键词进行搜请输入关键词进行搜请输入关键词进行搜请输入关键词进行搜请输入关键词进行搜
+      <view class="find_cart_title">{{item.title}}</view>
+      <view class="find_cart_intro">{{item.summary!==''?item.summary:'本书暂无介绍~'}}</view>
+      <view class="find_cart_info">
+        {{item.author!==''?item.author.length==1?item.author[0]:item.author[0]+'等':'暂无'}}
+        <text class="dot">·</text>
+        评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
       </view>
-    </view>
-  </view>
-  <view class="find_cart_wrap">
-    <view class="find_cart_img">
-      <image mode="widthFix" src="http://img4.imgtn.bdimg.com/it/u=1188387633,958216909&fm=26&gp=0.jpg" />
-    </view>
-    <view class="find_cart_text">
-      <view class="find_cart_title">请示海洋</view>
-      <view class="find_cart_intro">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo est perspiciatis assumenda iusto? Porro voluptatum expedita mollitia tenetur rem cupiditate, voluptate sint. Placeat incidunt, voluptas dolores quidem repellendus doloremque voluptates!
-      </view>
-    </view>
-  </view>
-  <view class="find_cart_wrap">
-    <view class="find_cart_img">
-      <image mode="widthFix" src="http://img4.imgtn.bdimg.com/it/u=1188387633,958216909&fm=26&gp=0.jpg" />
-    </view>
-    <view class="find_cart_text">
-      <view class="find_cart_title">请示海洋</view>
-      <view class="find_cart_intro">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo est perspiciatis assumenda iusto? Porro voluptatum expedita mollitia tenetur rem cupiditate, voluptate sint. Placeat incidunt, voluptas dolores quidem repellendus doloremque voluptates!
-      </view>
-    </view>
-  </view>
-  <view class="find_cart_wrap">
-    <view class="find_cart_img">
-      <image mode="widthFix" src="http://img4.imgtn.bdimg.com/it/u=1188387633,958216909&fm=26&gp=0.jpg" />
-    </view>
-    <view class="find_cart_text">
-      <view class="find_cart_title">请示海洋</view>
-      <view class="find_cart_intro">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo est perspiciatis assumenda iusto? Porro voluptatum expedita mollitia tenetur rem cupiditate, voluptate sint. Placeat incidunt, voluptas dolores quidem repellendus doloremque voluptates!
-      </view>
-    </view>
-  </view>
-  <view class="find_cart_wrap">
-    <view class="find_cart_img">
-      <image mode="widthFix" src="http://img4.imgtn.bdimg.com/it/u=1188387633,958216909&fm=26&gp=0.jpg" />
-    </view>
-    <view class="find_cart_text">
-      <view class="find_cart_title">请示海洋</view>
-      <view class="find_cart_intro">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo est perspiciatis assumenda iusto? Porro voluptatum expedita mollitia tenetur rem cupiditate, voluptate sint. Placeat incidunt, voluptas dolores quidem repellendus doloremque voluptates!
+      <view class="find_cart_info">
+        日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
+        <text class="dot">·</text>
+        出版社：{{item.publisher!==''?item.publisher:'暂未找到~'}}
       </view>
     </view>
   </view>

@@ -11,10 +11,29 @@ page {
   align-items: center;
   background-color: #fff;
 }
+.btn_wrap input {
+  height: 50rpx;
+  border-radius: 50rpx;
+  background-color: #eef0f5;
+  padding: 10rpx;
+  margin-left: 20rpx;
+  flex-grow: 1;
+  color: var(--arrowColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.btn_wrap input .iconroundclose {
+  position: absolute;
+  right: 0;
+  transform: translate(-50%, -50%);
+  font-size: 50rpx;
+}
 .btn_wrap .btn_item {
-  height: 100rpx;
-  width: 100rpx;
-  min-width: 100rpx;
+  height: 80rpx;
+  width: 80rpx;
+  min-width: 80rpx;
   position: relative;
   display: flex;
   align-items: center;
@@ -72,15 +91,6 @@ page {
 .iconfont:hover .list_cover {
   background-color: black;
 }
-input {
-  width: 100%;
-  margin: 0 20rpx;
-  padding-left: 30rpx;
-  border: 1rpx solid #c1c1c1;
-  border-radius: 30rpx;
-  font-size: 32rpx;
-  color: var(--fontColor);
-}
 .find_cart .find_cart_wrap {
   margin: 15rpx 0;
   padding: 25rpx;
@@ -106,7 +116,17 @@ input {
   font-size: 32rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.find_cart .find_cart_wrap .find_cart_text .find_cart_intro .dot {
+  margin: 0 5rpx;
+}
+.find_cart .find_cart_wrap .find_cart_text .find_cart_info {
+  color: #909090;
+  font-size: 32rpx;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   overflow: hidden;
 }
 .cover {

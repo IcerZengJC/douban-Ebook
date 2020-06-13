@@ -1,2 +1,38 @@
-<!--pages/classify/classify.wxml-->
-<text>pages/classify/classify.wxml</text>
+<navigator open-type="switchTab" url="../find/find" class="input_wrap animated bounceInRight">
+  <input placeholder-class="iconfont iconsearch_light" placeholder="请输入关键词搜索" hidden="{{inputShow}}"></input>
+  <view class="input_text iconfont iconsearch_light "></view>
+</navigator>
+<view class="contain">
+  <view class="left_tab">
+    <view class="tab_item tab_top">
+      <text class="iconfont iconselection"></text>
+      标签
+    </view>
+    <view class="tab_item {{currentIndex===index?'active animated fadeInLeft':''}}" wx:for="{{bookTags}}" wx:key="*this" bind:tap="handleChangeIndex" data-index="{{index}}">
+      {{item.title}}
+    </view>
+  </view>
+  <!-- <block class="right_content" wx:for="{{item.tagContent}}" wx:for-index="tagIndex" wx:for-item="tagItem" wx:key="{{item.title}}"> -->
+  <scroll-view class="right_content" scroll-y="{{true}}" enable-flex="true">
+    <block wx:for="{{bookTags[currentIndex].tagContent}}" wx:for-index="tagIndex" wx:for-item="tagItem" wx:key="tagIndex">
+      <navigator url="/miniprogram/pages/find?q={{tagItem.tagName}}" class="content_item" bind:tap="handleChooseTag" data-tagName="{{tagItem.tagName}}" data-index="{{tagIndex}}">
+        <view class="item_img">
+          <image mode="widthFix" width src="{{tagItem.img}}"></image>
+        </view>
+        <view class="item_text">
+          <view class="item_title">{{tagItem.tagName}}</view>
+          <view class="item_num">{{tagItem.tagBookNum}}</view>
+        </view>
+      </navigator>
+      <!-- <view class="content_item" bind:tap="handleChooseTag" data-tagName="{{tagItem.tagName}}" data-index="{{tagIndex}}">
+        <view class="item_img">
+          <image mode="widthFix" width src="{{tagItem.img}}"></image>
+        </view>
+        <view class="item_text">
+          <view class="item_title">{{tagItem.tagName}}</view>
+          <view class="item_num">{{tagItem.tagBookNum}}</view>
+        </view>
+      </view> -->
+    </block>
+  </scroll-view>
+</view>

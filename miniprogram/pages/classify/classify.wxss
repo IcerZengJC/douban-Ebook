@@ -1,1 +1,96 @@
-/* pages/classify/classify.wxss */
+.input_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+}
+.input_wrap input {
+  height: 50rpx;
+  border-radius: 50rpx;
+  background-color: #eef0f5;
+  flex-grow: 1;
+  margin-left: 20rpx;
+  padding: 10rpx 0;
+  color: var(--arrowColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input_wrap .input_text {
+  width: 100rpx;
+  font-size: 60rpx;
+  font-weight: 600;
+  text-align: center;
+}
+.contain {
+  display: flex;
+}
+.contain .left_tab {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: #eef0f5;
+}
+.contain .left_tab .tab_item {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50rpx 0;
+  color: var(--arrowColor);
+  font-size: 32rpx;
+}
+.contain .left_tab .tab_top {
+  height: 150rpx;
+  font-size: 34rpx;
+}
+.contain .left_tab .tab_top .iconselection {
+  margin-right: 5rpx;
+  font-size: 36rpx;
+}
+.contain .left_tab .active {
+  background-color: #fcfcfc;
+  position: relative;
+  color: var(--themeColor);
+}
+.contain .left_tab .active::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 70%;
+  transform: translateY(15%);
+  border-left: 10rpx solid var(--themeColor);
+  left: 0;
+  top: 0;
+}
+.contain .right_content {
+  flex: 7;
+  height: calc(100vh - 100rpx);
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20rpx;
+}
+.contain .right_content .content_item {
+  width: 50%;
+  padding-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contain .right_content .content_item .item_img {
+  flex: 7;
+}
+.contain .right_content .content_item .item_text {
+  flex: 8;
+  padding-left: 10rpx;
+}
+.contain .right_content .content_item .item_text .item_title {
+  font-size: 32rpx;
+}
+.contain .right_content .content_item .item_text .item_num {
+  padding-top: 10rpx;
+  font-size: 24rpx;
+  color: var(--arrowColor);
+}

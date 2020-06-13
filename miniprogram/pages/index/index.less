@@ -1,41 +1,108 @@
 .container {
   border-top: 1rpx solid #dedede;
+  overflow: visible;
+
   swiper {
     margin-top: 50rpx;
     overflow: visible;
-    height: 600rpx;
-    .book_item {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .slide_image {
-        border-radius: 10rpx;
-      }
+    height: 700rpx;
+    position: relative;
+    swiper-item {
+      overflow: visible;
+      .book_item {
+        height: 600rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible;
 
-      .zoom_out {
-        transform: scale(0.8);
-        transition: all 0.7s ease-out 0s;
-      }
+        // background-color: #bfa;
+        z-index: 5;
+        .slide_image {
+          border-radius: 10rpx;
+          position: relative;
+          overflow: visible;
 
-      .zoom_in {
-        transform: scale(1);
-        transition: all 0.7s ease-in 0s;
+          .bookTag {
+            position: absolute;
+            overflow: visible;
+            width: 150rpx;
+            height: 150rpx;
+            bottom: 0;
+            right: 0;
+            // -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg) translate(10%, 60%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: var(--themeColor);
+            opacity: 0.7;
+            z-index: 100;
+            color: white;
+          }
+          .bookTag::before {
+            content: "";
+            position: absolute;
+            overflow: visible;
+            width: 130rpx;
+            height: 130rpx;
+            transform: translate(-5rpx, -5rpx);
+            bottom: 0;
+            right: 0;
+            border-radius: 50%;
+            border: 5rpx solid white;
+            // background-color: red;
+            background-color: var(--themeColor);
+            // opacity: 0.2;
+            z-index: -1;
+          }
+
+          .short_tag {
+            font-size: 23rpx;
+          }
+        }
+
+        .zoom_out {
+          transform: scale(0.8);
+          transition: all 0.7s ease-out 0s;
+        }
+
+        .zoom_in {
+          transform: scale(1);
+          transition: all 0.7s ease-in 0s;
+        }
       }
     }
   }
   .book_intro {
-    text-align: center;
-
     .book_title {
+      text-align: center;
       padding: 20rpx;
       font-size: 38rpx;
       font-weight: 600;
       color: var(--fontColor);
     }
+    .book_author {
+      text-align: center;
+      padding: 20rpx;
+      font-size: 32rpx;
+      font-weight: 600;
+      color: var(--fontColor);
+    }
     .book_description {
-      padding: 10rpx;
+      text-align: left;
+      padding: 10rpx 40rpx;
       color: var(--arrowColor);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+      text-indent: 2em;
+    }
+    .text_center {
+      text-align: center;
+      text-indent: 0;
     }
   }
 }

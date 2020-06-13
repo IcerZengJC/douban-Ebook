@@ -1,19 +1,40 @@
 <!-- index.wxml -->
+<view class="select_tag" wx:for="{{bookTags}}" wx:for-index="bookIndex" wx:for-item="bookTag" wx:key="bookIndex">
+  <view>{{bookTag.title}} 11</view>
+  <view bind:tap="handleChooseTag" data-text="{{bookTag.tagContent[0].tagName}}">
+    {{bookTag.tagContent[0].tagName}}
+  </view>
+</view>
+<!-- <view bind:tap="handleChooseTag">{{bookTag.tagContent[1].tagName}}</view>
+  <view bind:tap="handleChooseTag">{{bookTag.tagContent[2].tagName}}</view>
+  <view bind:tap="handleChooseTag">{{bookTag.tagContent[3].tagName}}</view> -->
 <view class="container">
   <view class="toolbar"></view>
-  <swiper interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}" circular="{{circular}}" bindchange="swiperBindchange">
+  <swiper interval="{{swiperData.interval}}" duration="{{swiperData.duration}}" previous-margin="{{swiperData.previousMargin}}" next-margin="{{swiperData.nextMargin}}" circular="{{swiperData.circular}}" bindchange="swiperBindchange">
     <block wx:for="{{imgUrls}}" wx:key="index">
       <swiper-item>
         <view class="book_item" bind:tap="handleOpenBook">
-          <image mode="heightFix" src="{{item}}" class="slide_image {{currentSwiperIndex == index ? 'zoom_in' : 'zoom_out'}}" />
+          <image mode="heightFix" src="{{item}}" class="slide_image {{currentSwiperIndex == index ? 'zoom_in' : 'zoom_out'}}">
+            <block wx:if="{{currentSwiperIndex == index}}">
+              <view class="bookTag {{bookInfo[currentSwiperIndex].tags[0].name.length<4?'bookTag':'short_tag'}}">
+                {{bookInfo[currentSwiperIndex].tags[0].name}}
+              </view>
+            </block>
+          </image>
         </view>
       </swiper-item>
     </block>
   </swiper>
   <view class="book_intro">
-    <view class="bookTitle">{{bookInfo[currentSwiperIndex].bookTitle}}</view>
-    <view class="bookDescription" wx:for="{{bookInfo[currentSwiperIndex].bookDescription}}" wx:key="indexs" wx:for-item="items" wx:for-index="indexs">
-      {{items}}
+    <view class="book_title">
+      <text>{{bookInfo[currentSwiperIndex].title}}</text>
+    </view>
+    <view class="book_author">
+      <text>{{bookInfo[currentSwiperIndex].author}}</text>
+    </view>
+    <!-- <view class="bookDescription" wx:for="{{bookInfo[currentSwiperIndex].summary}}" wx:key="indexs" wx:for-item="items" wx:for-index="indexs"> -->
+    <view class="book_description  {{!bookInfo[currentSwiperIndex].summary?'text_center':'book_description'}}">
+      <text>{{bookInfo[currentSwiperIndex].summary||'抱歉，本书暂无介绍哦~'}}</text>
     </view>
   </view>
 </view>
