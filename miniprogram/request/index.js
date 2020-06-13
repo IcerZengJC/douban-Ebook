@@ -32,7 +32,9 @@ export const request = (params) => {
         // console.log(result);
         resolve(result);
       },
-      fail: () => {},
+      fail: () => {
+        console.log("请求失败");
+      },
       complete: () => {
         ajaxTimes--;
         if (ajaxTimes === 0) {

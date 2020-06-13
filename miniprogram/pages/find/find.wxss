@@ -103,6 +103,7 @@ page {
 .find_cart .find_cart_wrap .find_cart_img image {
   margin: 0 auto;
   width: 80%;
+  min-width: 60px;
   display: block;
 }
 .find_cart .find_cart_wrap .find_cart_text {
@@ -118,6 +119,8 @@ page {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .find_cart .find_cart_wrap .find_cart_text .find_cart_intro .dot {
   margin: 0 5rpx;
@@ -125,6 +128,7 @@ page {
 .find_cart .find_cart_wrap .find_cart_text .find_cart_info {
   color: #909090;
   font-size: 32rpx;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;

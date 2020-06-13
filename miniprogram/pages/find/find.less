@@ -118,6 +118,7 @@ page {
       image {
         margin: 0 auto;
         width: 80%;
+        min-width: 60px;
         display: block;
       }
     }
@@ -138,6 +139,9 @@ page {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        // 强制换行，不然简介里有url会破坏排版
+        word-wrap: break-word;
+        word-break: break-all;
         .dot {
           margin: 0 5rpx;
         }
@@ -145,6 +149,7 @@ page {
       .find_cart_info {
         color: #909090;
         font-size: 32rpx;
+        display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
         overflow: hidden;

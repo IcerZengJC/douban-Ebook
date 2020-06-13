@@ -20,7 +20,8 @@ Page({
     bookList: [],
     bookNum: 0,
   },
-
+  totalPages: 0,
+  pageNum: 1,
   /**
    * 生命周期函数--监听页面加载
    */
@@ -64,7 +65,11 @@ Page({
     // console.log(param);
     const res = await request({ url: "/search", param });
     console.log(res.data);
-    let bookList = res.data.books;
+    // 获取现在已有数据数据
+    let { bookList } = this.data;
+    // 拼接后才不会被新数据覆盖
+    bookList = bookList.concat(res.data.books);
+    // let bookList = res.data.books;
     let bookNum = res.data.total;
 
     this.setData({
@@ -80,5 +85,49 @@ Page({
       bookList: [],
       bookNum: [],
     });
+  },
+  // 页面上滑 滚动条触底事件
+  onReachBottom() {
+    // 总数
+    console.log(this.data.bookNum);
+    // 每页书籍数
+    console.log(this.data.param.count);
+    // 计算可分为多少页
+    this.totalPages = Math.ceil(this.data.bookNum / this.data.param.count);
+    console.log(this.totalPages);
+    //  1 判断还有没有下一页数据
+    if (this.pageNum >= this.totalPages) {
+      // 没有下一页数据
+      console.log("没有下一页数据");
+      wx.showToast({ title: "没有下一页数据" });
+    } else {
+      // 还有下一页数据
+      //  console.log('%c'+"有下一页数据","color:red;font-size:100px;background-image:linear-gradient(to right,#0094ff,pink)");
+      let { param } = this.data;
+      console.log(start);
+      let start = "param.start";
+      this.setData({
+        [start]: param.start + 10,
+      });
+      console.log("有下一页数据");
+      this.pageNum++;
+      this.qsearch(param);
+    }
+  },
+  // 下拉刷新事件
+  onPullDownRefresh() {
+    // 1 重置数组
+    this.setData({
+      bookList: [],
+      bookNum: 0,
+    });
+    // 2 重置请求参数
+    this.data.param.start = 0;
+    let { param } = this.data;
+    // 3 发送请求
+    this.qsearch(param);
+
+    // 4 关闭下拉刷新的窗口 如果没有调用下拉刷新的窗口 直接关闭也不会报错
+    wx.stopPullDownRefresh();
   },
 });

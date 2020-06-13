@@ -31,7 +31,7 @@
 <view class="find_cart">
   <view class="find_cart_wrap" wx:for="{{bookList}}">
     <view class="find_cart_img">
-      <image mode="widthFix" src="{{item.image}}" />
+      <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
     </view>
     <view class="find_cart_text">
       <view class="find_cart_title">{{item.title}}</view>
