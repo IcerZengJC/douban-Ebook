@@ -130,4 +130,27 @@ Page({
     // 4 关闭下拉刷新的窗口 如果没有调用下拉刷新的窗口 直接关闭也不会报错
     wx.stopPullDownRefresh();
   },
+  handleGetId(e) {
+    let { index } = e.currentTarget.dataset;
+    let { bookList } = this.data;
+    console.log(index);
+    console.log(bookList);
+    console.log(bookList[index]);
+    wx.navigateTo({
+      url: "../book/book?id=" + bookList[index].id,
+      events: {
+        // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+        acceptDataFromOpenedPage: function (data) {
+          console.log(data);
+        },
+        someEvent: function (data) {
+          console.log(data);
+        },
+      },
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit("acceptDataFromOpenerPage", { data: "test" });
+      },
+    });
+  },
 });

@@ -11,6 +11,8 @@ export const request = (params) => {
     mask: true,
   });
   // 定义公共的url
+  // https://api.douban.com/v2/book/17604305?fields=id,title,url&apikey=0df993c66c0c636e29ecbb5344252a4a
+  // https://api.douban.com/v2/book/search?q=1&apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10
   const baseUrl = "https://api.douban.com/v2/book" + params.url;
   let { param } = params;
   // console.log(param);
@@ -24,6 +26,7 @@ export const request = (params) => {
     param.start +
     "&count=" +
     param.count;
+  console.log(url);
   return new Promise((resolve, reject) => {
     wx.request({
       header: { "Content-Type": "application/text" },

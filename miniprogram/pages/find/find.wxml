@@ -4,7 +4,7 @@
   <!-- <button></button> -->
   <!-- <input class='animated fadeInRight' placeholder-class="iconfont iconsearch_light" placeholder="请输入关键词进行搜索" hidden="{{inputShow}}"></input> -->
   <block wx:if="{{inputShow}}">
-    <input value="{{inpValue}}" bindinput="handleInput" placeholder=" 请输入进行搜索" placeholder-class="iconfont iconsearch_light">
+    <input value="{{inpValue}}" bindinput="handleInput" placeholder=" 请输入进行搜索" placeholder-class="iconfont iconsearch_light" placeholder-style="font-size: 35rpx;">
       <text class="iconfont iconroundclose" bindtap="handleCancel" hidden="{{!isFocus}}"></text>
     </input>
   </block>
@@ -29,7 +29,7 @@
 <!-- 书单列表开始 -->
 <!-- 后续这个一开始有一系列的推荐card(默认List)，用户搜索之后才获取用户所需cart -->
 <view class="find_cart">
-  <view class="find_cart_wrap" wx:for="{{bookList}}">
+  <view class="find_cart_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
     <view class="find_cart_img">
       <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
     </view>
