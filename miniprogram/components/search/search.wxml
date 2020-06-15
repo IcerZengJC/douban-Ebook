@@ -1,5 +1,5 @@
 <view class="container">
-<text class="iconfont icon-tubiao-"></text>
-<input class="bar" placeholder="{{placeholder}}" placeholder-class="in-bat" bindinput="onInput"></input>
-<button class="search" size="mini" bind:tap="onSearch">搜索</button>
+  <input class="bar" placeholder="{{placeholder}}" bindinput="onInput">
+  </input>
+  <view class="search" bind:tap="onSearch">搜索</view>
 </view>

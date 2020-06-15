@@ -1,10 +1,13 @@
 {
   "cloud": true,
   "pages": [
+    "pages/launch/launch",
+    "pages/select/select",
     "pages/index/index",
     "pages/find/find",
-    "pages/search/search",
     "pages/user/user",
+    "pages/user-bloghisotry/user-bloghisotry",
+    "pages/user-readhistory/user-readhistory",
     "pages/setting/setting",
     "pages/feedback/feedback",
     "pages/classify/classify",
@@ -15,14 +18,14 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#66af9e",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999",
     "selectedColor": "#66af9e",
-    "backgroundColor": "grey",
+    "backgroundColor": "white",
     "position": "bottom",
     "borderStyle": "black",
 

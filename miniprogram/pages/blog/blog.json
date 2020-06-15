@@ -5,6 +5,6 @@
     "x-blog-card": "/components/blog-card/blog-card",
     "x-blog-ctrl": "/components/blog-ctrl/blog-ctrl"
   },
-  "navigationBarTitleText": "ETalk社区",
+  "navigationBarTitleText": "芝士社区",
   "enablePullDownRefresh": true
 }

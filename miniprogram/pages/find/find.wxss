@@ -20,7 +20,7 @@ page {
   flex-grow: 1;
   display: flex;
   align-items: center;
-  color: var(--arrowColor);
+  color: black;
   position: relative;
 }
 .btn_wrap input .iconroundclose {
@@ -90,28 +90,38 @@ page {
 .iconfont:hover .list_cover {
   background-color: black;
 }
-.find_cart .find_cart_wrap {
+.find_box {
+  position: relative;
+}
+.find_box .find_title {
+  font-size: 36rpx;
+  text-align: center;
+  margin: 20rpx;
+  color: crimson;
+  font-weight: 600;
+}
+.find_box .find_cart .find_cart_wrap {
   margin: 15rpx 0;
   padding: 25rpx;
   background-color: #fff;
   display: flex;
 }
-.find_cart .find_cart_wrap .find_cart_img {
+.find_box .find_cart .find_cart_wrap .find_cart_img {
   flex: 2;
 }
-.find_cart .find_cart_wrap .find_cart_img image {
+.find_box .find_cart .find_cart_wrap .find_cart_img image {
   margin: 0 auto;
   width: 80%;
   min-width: 60px;
   display: block;
 }
-.find_cart .find_cart_wrap .find_cart_text {
+.find_box .find_cart .find_cart_wrap .find_cart_text {
   flex: 5;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.find_cart .find_cart_wrap .find_cart_text .find_cart_intro {
+.find_box .find_cart .find_cart_wrap .find_cart_text .find_cart_intro {
   color: #909090;
   font-size: 32rpx;
   display: -webkit-box;
@@ -121,10 +131,10 @@ page {
   word-wrap: break-word;
   word-break: break-all;
 }
-.find_cart .find_cart_wrap .find_cart_text .find_cart_intro .dot {
+.find_box .find_cart .find_cart_wrap .find_cart_text .find_cart_intro .dot {
   margin: 0 5rpx;
 }
-.find_cart .find_cart_wrap .find_cart_text .find_cart_info {
+.find_box .find_cart .find_cart_wrap .find_cart_text .find_cart_info {
   color: #909090;
   font-size: 32rpx;
   display: -webkit-box;
@@ -132,13 +142,11 @@ page {
   -webkit-line-clamp: 1;
   overflow: hidden;
 }
-.cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.4;
-  z-index: 10;
+.find_box .toTop {
+  position: fixed;
+  right: 0;
+  bottom: 10vh;
+  text-align: center;
+  font-size: 100rpx;
+  color: var(--themeColor);
 }

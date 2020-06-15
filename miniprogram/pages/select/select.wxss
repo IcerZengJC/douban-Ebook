@@ -1,0 +1,51 @@
+swiper {
+  height: 1080rpx;
+}
+swiper .select_tag .tag_title {
+  font-size: 42rpx;
+  font-weight: 600;
+  text-align: center;
+  padding: 40rpx 0 20rpx;
+  color: var(--themeColor);
+}
+swiper .select_tag .tag_wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 20rpx;
+}
+swiper .select_tag .tag_wrap .tag_item {
+  padding: 15rpx 30rpx;
+  margin: 10rpx;
+  border-radius: 50rpx;
+  border: 1rpx solid #dedede;
+  position: relative;
+}
+swiper .select_tag .tag_wrap .tag_item .isRight {
+  position: absolute;
+  right: -10rpx;
+  top: -5rpx;
+  height: 100%;
+  text-align: right;
+  color: #66af9e;
+}
+swiper .select_tag .tag_wrap .isSelect {
+  border: 1rpx solid var(--themeColor);
+  color: var(--themeColor);
+}
+.btn_wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 1080rpx);
+  max-height: 120rpx;
+  background-color: var(--themeColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: white;
+  font-weight: 600;
+}

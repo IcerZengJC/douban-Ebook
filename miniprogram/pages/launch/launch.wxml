@@ -1,0 +1,3 @@
+<view class="launch">
+  <image mode="aspectFill" src="../../icons/launch.png"></image>
+</view>

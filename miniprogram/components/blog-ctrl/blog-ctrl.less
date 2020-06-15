@@ -1,0 +1,65 @@
+@import "../../style/iconfont.wxss";
+.ctrl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: white;
+  .ctrl-item {
+    flex: 1;
+    text-align: center;
+    color: rgba(40, 47, 60, 0.8);
+    font-size: 26rpx;
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .item-text {
+      font-size: 34rpx;
+    }
+    .iconfont {
+      margin-right: 12rpx;
+      font-size: 50rpx;
+    }
+
+    .share-btn {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      color: rgba(111, 112, 114, 0.8);
+    }
+
+    .share-btn::after {
+      display: none;
+    }
+
+    .share-hover::after {
+      border: 0;
+    }
+  }
+}
+
+.comment-content {
+  width: 600rpx;
+  text-align: left;
+  padding: 20rpx;
+  font-size: 42rpx;
+
+  .comment-send {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .send {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  }
+}

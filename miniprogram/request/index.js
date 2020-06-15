@@ -26,7 +26,7 @@ export const request = (params) => {
     param.start +
     "&count=" +
     param.count;
-  console.log(url);
+  // console.log(url);
   return new Promise((resolve, reject) => {
     wx.request({
       header: { "Content-Type": "application/text" },
@@ -47,23 +47,4 @@ export const request = (params) => {
       },
     });
   });
-  // return new Promise((resolve, reject) => {
-  //   wx.request({
-  //     ...params,
-  //     url: baseUrl + params.url,
-  //     success: (result) => {
-  //       resolve(result.data.message);
-  //     },
-  //     fail: (err) => {
-  //       reject(err);
-  //     },
-  //     complete: () => {
-  //       ajaxTimes--;
-  //       if (ajaxTimes === 0) {
-  //         //  关闭正在等待的图标
-  //         wx.hideLoading();
-  //       }
-  //     },
-  //   });
-  // });
 };

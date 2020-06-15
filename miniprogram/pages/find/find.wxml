@@ -4,7 +4,7 @@
   <!-- <button></button> -->
   <!-- <input class='animated fadeInRight' placeholder-class="iconfont iconsearch_light" placeholder="请输入关键词进行搜索" hidden="{{inputShow}}"></input> -->
   <block wx:if="{{inputShow}}">
-    <input value="{{inpValue}}" bindinput="handleInput" placeholder=" 请输入进行搜索" placeholder-class="iconfont iconsearch_light" placeholder-style="font-size: 35rpx;">
+    <input value="{{inpValue}}" bindinput="handleInput" placeholder=" 请输入进行搜索" placeholder-style="font-size: 35rpx;">
       <text class="iconfont iconroundclose" bindtap="handleCancel" hidden="{{!isFocus}}"></text>
     </input>
   </block>
@@ -25,29 +25,65 @@
     </view>
   </view>
 </view>
-<!-- 按钮栏结束 -->
 <!-- 书单列表开始 -->
 <!-- 后续这个一开始有一系列的推荐card(默认List)，用户搜索之后才获取用户所需cart -->
-<view class="find_cart">
-  <view class="find_cart_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
-    <view class="find_cart_img">
-      <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
-    </view>
-    <view class="find_cart_text">
-      <view class="find_cart_title">{{item.title}}</view>
-      <view class="find_cart_intro">{{item.summary!==''?item.summary:'本书暂无介绍~'}}</view>
-      <view class="find_cart_info">
-        {{item.author!==''?item.author.length==1?item.author[0]:item.author[0]+'等':'暂无'}}
-        <text class="dot">·</text>
-        评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
+<scroll-view scroll-y="{{true}}" class="find_box">
+  <block wx:if="{{isShow===true}}">
+    <view class="find_cart">
+      <view class="find_cart_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
+        <view class="find_cart_img">
+          <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
+        </view>
+        <view class="find_cart_text">
+          <view class="find_cart_title">{{item.title}}</view>
+          <view class="find_cart_intro">{{item.summary!==''?item.summary:'本书暂无介绍~'}}</view>
+          <view class="find_cart_info">
+            {{item.author!==''?item.author.length==1?item.author[0]:item.author[0]+'等':'暂无'}}
+            <text class="dot">·</text>
+            评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
+          </view>
+          <view class="find_cart_info">
+            日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
+            <text class="dot">·</text>
+            出版社：{{item.publisher!==''?item.publisher:'暂未找到~'}}
+          </view>
+        </view>
       </view>
-      <view class="find_cart_info">
-        日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
-        <text class="dot">·</text>
-        出版社：{{item.publisher!==''?item.publisher:'暂未找到~'}}
+    </view>
+  </block>
+  <block wx:else>
+    <view class="find_title">
+      <text class="iconfont iconlikefill"></text>
+      猜你喜欢
+      <text class="iconfont iconlikefill"></text>
+    </view>
+    <view class="find_cart">
+      <view class="find_cart_wrap" wx:for="{{bookRecomond}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
+        <view class="find_cart_img">
+          <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
+        </view>
+        <view class="find_cart_text">
+          <view class="find_cart_title">{{item.title}}</view>
+          <view class="find_cart_intro">{{item.summary!==''?item.summary:'本书暂无介绍~'}}</view>
+          <view class="find_cart_info">
+            {{item.author!==''?item.author.length==1?item.author[0]:item.author[0]+'等':'暂无'}}
+            <text class="dot">·</text>
+            评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
+            <text class="dot">·</text>
+            {{index}}
+          </view>
+          <view class="find_cart_info">
+            日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
+            <text class="dot">·</text>
+            出版社：{{item.publisher!==''?item.publisher:'暂未找到~'}}
+          </view>
+        </view>
       </view>
     </view>
-  </view>
-</view>
+  </block>
+  <view class="toTop iconfont iconicon-test1 " bind:tap="handleToTop"></view>
+  <!-- <block wx:if="{{bookList.length!==0}}" bind:tap="">
+    <view class="toTop iconfont iconicon-test1" bind:tap="handleToTop"></view>
+  </block> -->
+</scroll-view>
 <!-- 书单结束开始 -->
-<view class="cover" hidden="{{listShow}}"></view>

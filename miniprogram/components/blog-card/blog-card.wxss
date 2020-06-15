@@ -1,59 +1,56 @@
 page {
   background-color: #f1f1f1;
 }
-
 .blog {
-  width:100%;
+  width: 100%;
   height: 100%;
   padding: 20rpx;
   background-color: #fff;
 }
-
-.blog-title {
+.blog .blog-title {
   display: flex;
   align-items: center;
+  height: 150rpx;
+  border-bottom: 1rpx solid #ebe8e8;
 }
-
-.blog-portrait {
-  width: 64rpx;
-  height: 64rpx;
+.blog .blog-title .blog-portrait {
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
   margin-right: 20rpx;
 }
-
-.blog-box {
+.blog .blog-title .blog-box {
   flex: 1;
 }
-
-.blog-time {
-  font-size: 24rpx;
-  color: #939393;
+.blog .blog-title .blog-box .blog-nickName {
+  font-size: 38rpx;
 }
-
-.blog-content {
+.blog .blog-title .blog-box .blog-time {
+  padding-top: 10rpx;
+  font-size: 30rpx;
+  color: var(--arrowColor);
+}
+.blog .blog-content {
   margin: 20rpx 0;
-  font-size: 32rpx;
-  font-weight: 400;
+  font-size: 36rpx;
+  font-weight: 500;
   line-height: 1.5;
 }
-
-.blog-img {
+.blog .blog-content::first-letter {
+  font-size: 60rpx;
+  font-weight: 600;
+}
+.blog .blog-img {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
 }
-
-.blog-img .img {
+.blog .blog-img .img {
   width: 230rpx;
   height: 230rpx;
   margin-right: 10rpx;
   margin-bottom: 10rpx;
 }
-
-.blog-img .img:nth-child(3n) {
+.blog .blog-img .img:nth-child(3n) {
   margin-right: 0;
-}
-
-.blog-nickName {
-  font-size: 32rpx;
 }

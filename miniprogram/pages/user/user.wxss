@@ -21,7 +21,7 @@ page {
   flex: 2;
   overflow: hidden;
 }
-.user_info_wrap .text_left .user_img image {
+.user_info_wrap .text_left .user_img .user_img_wrap {
   border-radius: 50%;
   overflow: hidden;
   width: 90%;

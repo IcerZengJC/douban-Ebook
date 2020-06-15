@@ -1,24 +1,22 @@
 <view class="ctrl">
-  <view class="ctrl-item" bind:tap="onComment">
-    <text class="iconfont icon-comment_light icon"></text>
-    <text>评论</text>
+  <view class="ctrl-item" bind:tap="onLike">
+    <text class="iconfont iconappreciate"></text>
+    <text class="item-text">点赞</text>
   </view>
-  <view class="ctrl-item share">
-  <button open-type="share" data-blogid="{{blogId}}" data-blog="{{blog}}"  class="share-btn" hover-class="share-hover">
-    <text class="iconfont icon-share_light icon"></text>
-    <text>分享</text>
-  </button>    
+  <view class="ctrl-item" bind:tap="onComment">
+    <text class="iconfont iconcomment"></text>
+    <text class="item-text">评论</text>
+  </view>
+  <view class="ctrl-item">
+    <text class="iconfont iconshare"></text>
+    <text class="item-text">分享</text>
+    <button open-type="share" data-blogid="{{blogId}}" data-blog="{{blog}}" class="share-btn" hover-class="share-hover"></button>
   </view>
 </view>
-
-<x-login modelShow="{{loginShow}}"
-bind:loginsuccess="onLoginSuccess"
-bind:loginfail="onLoginFail"
-/>
-
-<x-bottom-model  modelShow="{{modelShow}}"  footerBottom="{{footerBottom}}">
+<x-login modelShow="{{loginShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />
+<x-bottom-model modelShow="{{modelShow}}" footerBottom="{{footerBottom}}">
   <form slot="model-content" report-submit="true" bind:submit="onSend">
-    <textarea name="content" class="comment-content" placeholder="写评论"  value="{{content}}" fixed="true"  bindfocus="onFocus" bindblur="onBlur"></textarea>
+    <textarea name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true" bindfocus="onFocus" bindblur="onBlur"></textarea>
     <button class="send" size="mini" form-type="submit">发送</button>
   </form>
 </x-bottom-model>

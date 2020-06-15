@@ -15,6 +15,7 @@ Page({
       count: 1,
     },
     tagImgList: [],
+    scrollTop: 0,
   },
 
   /**
@@ -56,6 +57,7 @@ Page({
     this.setData({
       bookTags,
       currentIndex: index,
+      scrollTop: 0,
     });
     // 有这个属性，就无需发送 request 请求图片
     if (!bookTags[index].haveImg) {
@@ -71,16 +73,14 @@ Page({
 
     let tagList = bookTags[currentIndex].tagContent;
     let tagImgList = [];
-    // console.log(bookTags[currentIndex].tagContent);
-    // console.log(bookTags[currentIndex].tagContent[0].tagName);
+
     var q = "param.q"; //先用一个变量，把(param.q)用字符串拼接起来
 
     tagList.forEach((ele, idx) => {
-      // console.log(idx);
       this.setData({
         [q]: ele.tagName,
       });
-      // console.log(param);
+
       request({
         param,
         url: "/search",
@@ -92,30 +92,17 @@ Page({
           [img]: books[0].image,
           [haveImg]: true,
         });
-        // console.log(books[0].image);
-        // tagImgList.push({ img: books[0].image } || "");
       });
     });
-    // console.log("tagImgList", tagImgList);
-    // var img = "bookTags[" + currentIndex + "].img";
-    // this.setData({
-    //   [img]: tagImgList,
-    // });
-    // this.setData({
-    //   tagImgList,
-    // });
-    // console.log(this.data.tagImgList);
   },
   handleChooseTag(e) {
     const { tagname } = e.currentTarget.dataset;
     console.log("tagname", tagname);
 
-    // var q = "param.q"; //先用一个变量，把(param.q)用字符串拼接起来
-    // this.setData({
-    //   [q]: tagname,
-    // });
-    wx.navigateTo({
-      url: "/miniprogram/pages/find",
+    wx.setStorageSync("classifytag", tagname);
+    wx.switchTab({
+      url: "../find/find",
+
       success: (result) => {},
       fail: () => {},
       complete: () => {},

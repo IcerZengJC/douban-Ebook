@@ -90,13 +90,6 @@
 				},
 				{
 					"id": -1,
-					"name": "书籍",
-					"pathName": "pages/book/book",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "分类",
 					"pathName": "pages/classify/classify",
 					"query": "",
@@ -106,6 +99,27 @@
 					"id": -1,
 					"name": "探索",
 					"pathName": "pages/find/find",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "书籍",
+					"pathName": "pages/book/book",
+					"query": "id=4913064",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "社区",
+					"pathName": "pages/blog/blog",
 					"scene": null
 				}
 			]

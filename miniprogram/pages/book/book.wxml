@@ -1,0 +1,77 @@
+<view class="book_info">
+  <view class="cover">
+    <image mode="center" src="{{bookInfo.image}}" />
+  </view>
+  <view class="info_left">
+    <view class="book_img">
+      <image mode="widthFix" src="{{bookInfo.image}}" />
+    </view>
+  </view>
+  <view class="info_right">
+    <view class="book_title">{{bookInfo.title}}</view>
+    <view class="book_author">
+      <!-- {{author!==''?author.length===1?author[0]:author.length>2?author[0]+author1]:author[0]+author[1]+'等':'暂无'}} -->
+      {{bookInfo.author!==''?bookInfo.author.length===1?bookInfo.author[0]:bookInfo.author[0]+' 等':'暂无'}}
+    </view>
+    <view class="book_publisher">{{bookInfo.publisher}}</view>
+    <view class="book_info_wrap">出版日期：{{bookInfo.pubdate}}</view>
+    <view class="book_info_wrap">
+      {{bookInfo.binding}}
+      <text class="dot">·</text>
+      {{bookInfo.pages}}页
+      <text class="dot">·</text>
+      {{bookInfo.price}}/本
+    </view>
+  </view>
+</view>
+<view class="book_intro">
+  <view class="book_op">
+    <view class="book_rating">
+      <view class="rating_wrap">
+        <view class="rating_num">{{bookInfo.rating.average}}</view>
+        <view class="t">
+          <view class='stars' wx:for='{{[2,4,6,8,10]}}' wx:key="index">
+            <!-- {{bookInfo.rating.average}}-{{index+1}}-{{item}}-{{bookInfo.rating.average*10%10}}-{{bookInfo.rating.average*10%10!==0}} -->
+            <image mode="widthFix" src='../../icons/star_fill_whole.png' wx:if="{{bookInfo.rating.average >=item  }}"></image>
+            <image mode="widthFix" src='../../icons/star_fill_half.png' wx:elif="{{bookInfo.rating.average < item && bookInfo.rating.average*10%10 !==0 }}"></image>
+            <image mode="widthFix" src='../../icons/star_fill_none.png' wx:else></image>
+          </view>
+        </view>
+      </view>
+      <view class="rating_wrap">
+        <view class="book_rating_num">{{bookInfo.rating.numRaters}}人评分</view>
+      </view>
+    </view>
+    <view class="book_collect">
+      <view class="collect_wrap" bind:tap="handleLikeBtn">
+        <text class="iconfont {{!isLike?'iconappreciate':'iconappreciatefill'}}"></text>
+      </view>
+      <view class="collect_wrap">
+        <text>点赞</text>
+      </view>
+    </view>
+    <view class="book_collect">
+      <view class="collect_wrap" bind:tap="handleCollectBtn">
+        <text class="iconfont {{!isCollect?'iconfavor':'iconfavorfill'}}"></text>
+      </view>
+      <view class="collect_wrap">
+        <text>收藏</text>
+      </view>
+    </view>
+  </view>
+  <view class="book_summary">
+    <view class="sum_text {{showAll?'sum_showall':''}}">
+      <view>{{bookInfo.summary}}</view>
+      <view class="iconfont {{showAll?'iconfold':'iconunfold'}} show_all" bind:tap="handleShowAll"></view>
+    </view>
+  </view>
+  <view class="book_catalog">查看目录</view>
+</view>
+<view class="book_tags">
+  <view class="tags_title">常用标签</view>
+  <view class="tags_box">
+    <view class="tags_item" wx:for="{{bookInfo.tags}}" wx:for-item="tags" wx:for-index="tagsIdx" wx:key="tagsIdx">
+      <view class="tags_text">{{tags.name}}</view>
+    </view>
+  </view>
+</view>

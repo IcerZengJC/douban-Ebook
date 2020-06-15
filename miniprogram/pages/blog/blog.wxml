@@ -1,28 +1,21 @@
-<!--pages/blog/blog.wxml-->
+<!-- pages/blog/blog.wxml -->
 <view class="container">
   <view class="header">
     <view class="publish-container" bind:tap="onPublish">
-      <i class="iconfont icon-fabu"></i>
+      <text class="iconfont iconadd"></text>
     </view>
     <view class="search-container">
-      <x-search bind:search="onSearch"/>
+      <x-search bind:search="onSearch" />
     </view>
-  </view >
-
-
-<!-- 博客卡片列表 -->
+  </view>
+  <!-- 博客卡片列表 -->
   <view class="blog-list">
     <block wx:for="{{blogList}}" wx:key="_id">
       <view class="blog-panel">
-        <x-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment"/>
-        <x-blog-ctrl blogId="{{item._id}}" blog="{{item}}"/>
+        <x-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment" />
+        <x-blog-ctrl blogId="{{item._id}}" blog="{{item}}" />
       </view>
     </block>
   </view>
-
-
-
-
-<x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess"bind:loginfail="onLoginFail">
-</x-login>
+  <x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail"></x-login>
 </view>

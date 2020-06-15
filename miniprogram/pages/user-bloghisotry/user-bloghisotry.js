@@ -1,4 +1,4 @@
-// pages/search/search.js
+// pages/user-bloghisotry/user-bloghisotry.js
 Page({
 
   /**

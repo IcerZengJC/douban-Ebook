@@ -21,7 +21,7 @@ page {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    color: var(--arrowColor);
+    color: black;
 
     position: relative;
     .iconroundclose {
@@ -105,67 +105,74 @@ page {
 .iconfont:hover .list_cover {
   background-color: black;
 }
-
-.find_cart {
-  .find_cart_wrap {
-    margin: 15rpx 0;
-    padding: 25rpx;
-    background-color: #fff;
-    display: flex;
-
-    .find_cart_img {
-      flex: 2;
-
-      image {
-        margin: 0 auto;
-        width: 80%;
-        min-width: 60px;
-        display: block;
-      }
-    }
-
-    .find_cart_text {
-      flex: 5;
+.find_box {
+  position: relative;
+  .find_title {
+    font-size: 36rpx;
+    text-align: center;
+    margin: 20rpx;
+    color: crimson;
+    font-weight: 600;
+  }
+  .find_cart {
+    .find_cart_wrap {
+      margin: 15rpx 0;
+      padding: 25rpx;
+      background-color: #fff;
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
 
-      .find_cart_title {
-      }
+      .find_cart_img {
+        flex: 2;
 
-      .find_cart_intro {
-        color: #909090;
-        font-size: 32rpx;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-        // 强制换行，不然简介里有url会破坏排版
-        word-wrap: break-word;
-        word-break: break-all;
-        .dot {
-          margin: 0 5rpx;
+        image {
+          margin: 0 auto;
+          width: 80%;
+          min-width: 60px;
+          display: block;
         }
       }
-      .find_cart_info {
-        color: #909090;
-        font-size: 32rpx;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        overflow: hidden;
+
+      .find_cart_text {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .find_cart_title {
+        }
+
+        .find_cart_intro {
+          color: #909090;
+          font-size: 32rpx;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          // 强制换行，不然简介里有url会破坏排版
+          word-wrap: break-word;
+          word-break: break-all;
+          .dot {
+            margin: 0 5rpx;
+          }
+        }
+        .find_cart_info {
+          color: #909090;
+          font-size: 32rpx;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          overflow: hidden;
+        }
       }
     }
   }
-}
 
-.cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  background-color: rgb(0, 0, 0);
-  opacity: 0.4;
-  z-index: 10;
+  .toTop {
+    position: fixed;
+    right: 0;
+    bottom: 10vh;
+    text-align: center;
+    font-size: 100rpx;
+    color: var(--themeColor);
+  }
 }

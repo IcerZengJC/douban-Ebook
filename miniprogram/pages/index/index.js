@@ -5,7 +5,6 @@ Page({
    */
   data: {
     imgUrls: [],
-    swiperList: [],
     swiperData: {
       indicatorDots: true, //是否显示面板指示点
       autoplay: true, //是否自动播放
@@ -17,7 +16,6 @@ Page({
     },
     currentSwiperIndex: 0, //swiper当前索引
     bookInfo: [],
-    bookCount: 0,
     bookTags: [],
     param: {
       apikey: "0df993c66c0c636e29ecbb5344252a4a",
@@ -25,24 +23,33 @@ Page({
       start: 0,
       count: 10,
     },
+    isSelect: false,
+    inputShow: true,
+    listShow: true,
   },
+  bookBox: [],
+  imgBox: [],
   baseUrl: "https://api.douban.com/v2/book",
   onLoad() {
+    this.setData({
+      imgUrls: [],
+      currentSwiperIndex: 0, //swiper当前索引
+      bookInfo: [],
+      bookTags: [],
+      param: {
+        apikey: "0df993c66c0c636e29ecbb5344252a4a",
+        q: "",
+        start: 0,
+        count: 10,
+      },
+    });
     // 从 bookInfo中提取 书的图片
-    wx.cloud
-      .callFunction({
-        name: "getBookTags",
-      })
-      .then((res) => {
-        console.log(res.result);
-        let { bookTags } = res.result;
-        this.setData({
-          bookTags, 
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    let tags = wx.getStorageSync("tags");
+    console.log("object");
+    // console.log(tags);
+    tags.forEach((ele) => {
+      this.handleChooseTag(ele, tags.length);
+    });
   },
 
   swiperBindchange(e) {
@@ -51,22 +58,36 @@ Page({
     });
   },
   handleOpenBook(e) {
+    let { index } = e.currentTarget.dataset;
+    let { bookInfo } = this.data;
+
+    console.log(bookInfo[index].id);
     wx.navigateTo({
-      // url: "/miniprogram/pages/book/book",
-      url: "../book/book",
-      success: (result) => {},
-      fail: () => {},
-      complete: () => {},
+      url: "../book/book?id=" + bookInfo[index].id,
+      events: {
+        // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+        acceptDataFromOpenedPage: function (data) {
+          console.log("1", data);
+        },
+        someEvent: function (data) {
+          console.log("2", data);
+        },
+      },
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit("acceptDataFromOpenerPage", bookInfo[index]);
+      },
     });
   },
-  handleChooseTag(e) {
-    let { text } = e.currentTarget.dataset;
-    console.log(text);
+  handleChooseTag(text, len) {
     var q = "param.q"; //先用一个变量，把(param.q)用字符串拼接起来
+    var count = "param.count"; //先用一个变量，把(param.q)用字符串拼接起来
+    // 看有几个标签，就将展示书籍切几块
+    let n = Math.ceil(20 / len);
     this.setData({
       [q]: text,
+      [count]: n,
     });
-    let { apikey } = this.data.param;
     this.getBookCommend();
   },
   getBookCommend() {
@@ -76,21 +97,48 @@ Page({
       url: "/search",
     }).then((result) => {
       console.log("返回");
-      let bookInfo = result.data.books;
+      let bookBox = result.data.books;
 
-      this.setData({
-        bookInfo,
-        bookCount: result.data.count,
-      });
-
-      const imgUrls = [];
-      bookInfo.forEach((v) => {
-        imgUrls.push(v.image);
-        // console.log(v.image);
+      bookBox.forEach((v) => {
+        this.imgBox.push(v.image);
+        this.bookBox.push(v);
       });
       this.setData({
-        imgUrls,
+        bookInfo: this.bookBox,
+        imgUrls: this.imgBox,
       });
+    });
+    // 原来实现
+    // let { param } = this.data;
+    // request({
+    //   param,
+    //   url: "/search",
+    // }).then((result) => {
+    //   console.log("返回");
+    //   let bookInfo = result.data.books;
+
+    //   this.setData({
+    //     bookInfo,
+    //   });
+
+    //   const imgUrls = [];
+    //   bookInfo.forEach((v) => {
+    //     imgUrls.push(v.image);
+    //   });
+    //   this.setData({
+    //     imgUrls,
+    //   });
+    // });
+  },
+  handleListShow() {
+    this.setData({
+      listShow: !this.data.listShow,
+    });
+  },
+  handleReSelect() {
+    console.log("object");
+    wx.reLaunch({
+      url: "../select/select",
     });
   },
 });

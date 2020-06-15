@@ -1,10 +1,12 @@
-<view class="user_info_wrap">
+<view class="user_info_wrap" bind:tap="onLogin">
   <view class="text_left">
     <view class="user_img">
-      <image mode="widthFix" src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1388647394,240988450&fm=111&gp=0.jpg" />
+      <view class="user_img_wrap">
+        <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
+      </view>
     </view>
     <view class="user_intro">
-      <view class="user_name">呜啦啦</view>
+      <view class="user_name">{{userInfo.nickName}}</view>
       <view class="user_introduction">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, voluptatum magnam? Expedita, maxime? Laudantium, voluptatibus fuga blanditiis magnam minima dignissimos cumque hic nesciunt quae voluptates nihil rem saepe id aliquid?
       </view>
@@ -12,28 +14,34 @@
   </view>
   <view class="iconfont iconright"></view>
 </view>
-<view class="user_communicate">
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconselection"></text>
-      <text class="text">我的称号</text>
+<view class="user_communicate" bind:tap="onLogin">
+  <navigator url="/pages/user-readhistory/user-readhistory" hover-class="none">
+    <view class="user_communicate_wrap">
+      <view class="text_left">
+        <text class="iconfont iconchakan1"></text>
+        <text class="text">最近观看</text>
+      </view>
+      <view class="iconfont iconright"></view>
     </view>
-    <view class="iconfont iconright"></view>
-  </view>
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconfavor_light"></text>
-      <text class="text">我的收藏</text>
+  </navigator>
+  <navigator url="/pages/user-bloghisotry/user-bloghistory" hover-class="none">
+    <view class="user_communicate_wrap">
+      <view class="text_left">
+        <text class="iconfont iconcomment"></text>
+        <text class="text">我的观点</text>
+      </view>
+      <view class="iconfont iconright"></view>
     </view>
-    <view class="iconfont iconright"></view>
-  </view>
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconcomment"></text>
-      <text class="text">我的观点</text>
+  </navigator>
+  <navigator hover-class="none">
+    <view class="user_communicate_wrap">
+      <view class="text_left">
+        <text class="iconfont iconfavor"></text>
+        <text class="text">我的收藏</text>
+      </view>
+      <view class="iconfont iconright"></view>
     </view>
-    <view class="iconfont iconright"></view>
-  </view>
+  </navigator>
 </view>
 <view class="user_communicate">
   <view class="user_communicate_wrap">
@@ -66,4 +74,4 @@
   </view>
 </view>
 <navigator class="user_setting_wrap" url="/pages/setting/setting">设置</navigator>
-
+<x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />

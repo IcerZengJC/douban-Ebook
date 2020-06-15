@@ -1,11 +1,68 @@
+page {
+  position: relative;
+}
 .container {
   border-top: 1rpx solid #dedede;
   overflow: visible;
+  position: relative;
+
+  .btn_item {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 80rpx;
+    width: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50rpx;
+    z-index: 10;
+    .toollist {
+      position: absolute;
+      right: 20rpx;
+      top: 80rpx;
+      z-index: 10;
+      background-color: #fcfcfc;
+      border-radius: 10rpx;
+
+      .tool_wrap {
+        width: 250rpx;
+        font-size: 34rpx;
+        padding: 25rpx 15rpx;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .iconfont {
+          font-size: 36rpx;
+          margin: 0 20rpx;
+        }
+      }
+
+      .tool_wrap:not(:last-child) {
+        border-bottom: 1rpx solid rgb(206, 206, 206);
+      }
+    }
+
+    .toollist::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -45rpx;
+      right: 0;
+      transform: translateX(-50%);
+      // top: -40rpx;
+      // right: 20rpx;
+      border: 25rpx solid;
+      border-color: transparent transparent #fcfcfc transparent;
+    }
+  }
 
   swiper {
-    margin-top: 50rpx;
+    margin-top: 40rpx;
     overflow: visible;
-    height: 700rpx;
+    height: 650rpx;
     position: relative;
     swiper-item {
       overflow: visible;
@@ -78,31 +135,45 @@
   .book_intro {
     .book_title {
       text-align: center;
-      padding: 20rpx;
-      font-size: 38rpx;
+      padding: 10rpx;
+      font-size: 42rpx;
       font-weight: 600;
       color: var(--fontColor);
     }
     .book_author {
       text-align: center;
       padding: 20rpx;
-      font-size: 32rpx;
-      font-weight: 600;
+      font-size: 34rpx;
+      font-weight: 500;
       color: var(--fontColor);
     }
     .book_description {
-      text-align: left;
-      padding: 10rpx 40rpx;
-      color: var(--arrowColor);
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 5;
-      overflow: hidden;
-      text-indent: 2em;
+      // text-align: left;
+      padding: 10rpx 30rpx;
+
+      // text-indent: 2em;
+      .book_description_text {
+        font-size: 32rpx;
+        color: var(--arrowColor);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+      }
     }
     .text_center {
       text-align: center;
       text-indent: 0;
     }
   }
+}
+.cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  filter: blur(20rpx);
+  opacity: 0.5;
 }

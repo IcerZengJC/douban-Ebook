@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section page-section-spacing swiper">
+      <!-- autoplay="{{true}}" -->
+      <swiper indicator-dots="{{true}}" interval="{{2000}}" duration="2000" circular="{{true}}" indicator-active-color="#66af9e">
+        <block wx:for="{{bookTags}}" wx:for-index="bookIndex" wx:for-item="bookTag" wx:key="bookIndex">
+          <swiper-item class="select_tag ">
+            <view class="tag_title">{{bookTag.title}}</view>
+            <view class="tag_wrap">
+              <view class="tag_item {{tag.isSelect?'isSelect isRight':''}}" wx:for="{{bookTag.tagContent}}" wx:for-item="tag" wx:for-index="idx" wx:key="idx">
+                <view bind:tap="handleChooseTag" data-text="{{tag.tagName}}" data-tagindex="{{idx}}" data-swiperindex="{{bookIndex}}">
+                  {{tag.tagName}}
+                </view>
+                <block wx:if="{{tag.isSelect}}">
+                  <view class="isRight iconfont iconroundcheckfill"></view>
+                </block>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>
+<block wx:if="{{selectTag.length!==0}}">
+  <view class="btn_wrap" bind:tap="handleStorage">选择好了，进入首页吧~</view>
+</block>
+<block wx:else>
+  <view class="btn_wrap">快选择你喜爱的标签吧~</view>
+</block>

@@ -1,40 +1,33 @@
-@import "/iconfont.wxss";
 .header {
   display: flex;
   align-items: center;
-  padding: 0 20rpx;
-  background-color: #fff;
-  height: 100rpx;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 130rpx;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99;
-  box-sizing: border-box;
+  z-index: 100;
 }
-
-.header .icon-fabu {
-  font-size: 48rpx;
-}
-
-.publish-container {
-  width: 68rpx;
-  height: 68rpx;
+.header .publish-container {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.search-container {
-  flex: 1;
+.header .publish-container .iconadd {
+  font-size: 60rpx;
 }
-
-.blog-list {
-  margin-top: 120rpx;
+.header .search-container {
+  flex: 7;
+  height: 100%;
   width: 100%;
 }
-
-.blog-panel {
-  margin-bottom: 20rpx;
-  box-sizing: border-box;
+.blog-list {
+  margin-top: 160rpx;
+  width: 100%;
+}
+.blog-list .blog-panel {
+  margin-bottom: 30rpx;
 }
