@@ -23,30 +23,30 @@ Page({
       });
     });
 
-    // wx.cloud
-    //   .callFunction({
-    //     name: "login",
-    //   })
-    //   .then((res) => {
-    //     this.setData({
-    //       openid: res.result.openid,
-    //     });
-    //     db.collection("collectBook")
-    //       .where({
-    //         _openid: this.data.openid,
-    //         bookInfo: this.data.bookInfo.id,
-    //       })
-    //       .get()
-    //       .then((res) => {
-    //         console.log(this.data.openid);
-    //         if (res.data.length != 0) {
-    //           this.setData({
-    //             isCollect: true,
-    //           });
-    //           let { isCollect } = this.data;
-    //         }
-    //       });
-    //   });
+    wx.cloud
+      .callFunction({
+        name: "login",
+      })
+      .then((res) => {
+        this.setData({
+          openid: res.result.openid,
+        });
+        db.collection("collectBook")
+          .where({
+            _openid: this.data.openid,
+            bookid: this.data.bookInfo.id,
+          })
+          .get()
+          .then((res) => {
+            console.log(this.data.openid);
+            if (res.data.length != 0) {
+              this.setData({
+                isCollect: true,
+              });
+              let { isCollect } = this.data;
+            }
+          });
+      });
   },
   handleShowAll() {
     this.setData({
@@ -100,7 +100,8 @@ Page({
       db.collection("collectBook")
         .add({
           data: {
-            bookInfo: this.data.bookInfo.id,
+            bookInfo: this.data.bookInfo,
+            bookid:this.data.bookInfo.id,
           },
         })
         .then((res) => {
@@ -113,7 +114,7 @@ Page({
       db.collection("collectBook")
         .where({
           _openid: this.data.openid,
-          bookInfo: this.data.bookInfo.id,
+          bookid: this.data.bookInfo.id,
         })
         .remove()
         .then((res) => {

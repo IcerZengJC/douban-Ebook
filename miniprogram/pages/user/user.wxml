@@ -24,7 +24,7 @@
       <view class="iconfont iconright"></view>
     </view>
   </navigator>
-  <navigator url="/pages/user-bloghisotry/user-bloghistory" hover-class="none">
+  <navigator url="/pages/user-bloghistory/user-bloghistory" hover-class="none">
     <view class="user_communicate_wrap">
       <view class="text_left">
         <text class="iconfont iconcomment"></text>
@@ -33,7 +33,7 @@
       <view class="iconfont iconright"></view>
     </view>
   </navigator>
-  <navigator hover-class="none">
+  <navigator url="/pages/user-collect/user-collect" hover-class="none">
     <view class="user_communicate_wrap">
       <view class="text_left">
         <text class="iconfont iconfavor"></text>

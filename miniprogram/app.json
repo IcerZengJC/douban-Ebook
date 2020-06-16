@@ -6,8 +6,9 @@
     "pages/index/index",
     "pages/find/find",
     "pages/user/user",
-    "pages/user-bloghisotry/user-bloghisotry",
+    "pages/user-user-bloghistory/user-user-bloghistory",
     "pages/user-readhistory/user-readhistory",
+    "pages/user-collect/user-collect",
     "pages/setting/setting",
     "pages/feedback/feedback",
     "pages/classify/classify",
@@ -15,6 +16,7 @@
     "pages/book/book",
     "pages/blog-comment/blog-comment",
     "pages/blog-edit/blog-edit"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

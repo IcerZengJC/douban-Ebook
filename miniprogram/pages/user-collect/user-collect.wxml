@@ -1,0 +1,28 @@
+<view class="collect_word">
+  <text class="iconfont iconlikefill"></text>
+  我的收藏
+  <text class="iconfont iconlikefill"></text>
+</view>
+<view class="collect">
+  <view class="collect_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
+    <view class="collect_img">
+      <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
+    </view>
+    <view class="collect_text">
+      <view class="collect_title">{{item.title}}</view>
+      <view class="collect_intro">{{item.summary!==''?item.summary:'本书暂无介绍~'}}</view>
+      <view class="collect_info">
+        {{item.author!==''?item.author.length==1?item.author[0]:item.author[0]+'等':'暂无'}}
+        <text class="dot">·</text>
+        评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
+        <text class="dot">·</text>
+        {{index}}
+      </view>
+      <view class="collect_info">
+        日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
+        <text class="dot">·</text>
+        出版社：{{item.publisher!==''?item.publisher:'暂未找到~'}}
+      </view>
+    </view>
+  </view>
+</view>

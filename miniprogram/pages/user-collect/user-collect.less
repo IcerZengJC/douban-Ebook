@@ -1,0 +1,59 @@
+.collect_word {
+  font-size: 36rpx;
+  text-align: center;
+  margin: 20rpx;
+  color: crimson;
+  font-weight: 600;
+}
+.collect {
+  .collect_wrap {
+    margin: 15rpx 0;
+    padding: 25rpx;
+    background-color: #fff;
+    display: flex;
+
+    .collect_img {
+      flex: 2;
+
+      image {
+        margin: 0 auto;
+        width: 80%;
+        min-width: 60px;
+        display: block;
+      }
+    }
+
+    .collect_text {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .collect_title {
+      }
+
+      .collect_intro {
+        color: #909090;
+        font-size: 32rpx;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        // 强制换行，不然简介里有url会破坏排版
+        word-wrap: break-word;
+        word-break: break-all;
+        .dot {
+          margin: 0 5rpx;
+        }
+      }
+      .collect_info {
+        color: #909090;
+        font-size: 32rpx;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+    }
+  }
+}

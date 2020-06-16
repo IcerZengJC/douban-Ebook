@@ -120,6 +120,13 @@
 					"id": -1,
 					"name": "社区",
 					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/user-collect/user-collect",
 					"scene": null
 				}
 			]
