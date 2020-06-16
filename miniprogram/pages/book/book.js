@@ -46,6 +46,22 @@ Page({
               let { isCollect } = this.data;
             }
           });
+
+          db.collection("good")
+          .where({
+            _openid: this.data.openid,
+            bookid: this.data.bookInfo.id,
+          })
+          .get()
+          .then((res) => {
+            console.log(this.data.openid);
+            if (res.data.length != 0) {
+              this.setData({
+                isLike: true,
+              });
+              let { isLike } = this.data;
+            }
+          });
       });
   },
   handleShowAll() {
@@ -57,36 +73,81 @@ Page({
     let { isLike } = this.data;
     // 是否点击
     if (!isLike) {
-      // 已经点赞，进行取消操作
-      wx.showToast({
-        title: "点赞成功",
-        mask: true,
-        success: () => {
-          console.log("成功");
-          this.setData({
-            isLike: !this.data.isLike,
-          });
+      db.collection("good")
+      .add({
+        data: {
+          bookInfo: this.data.bookInfo,
+          bookid:this.data.bookInfo.id,
+          goodTime:db.serverDate(),
         },
-        fail: () => {
-          console.log("失败");
-        },
+      })
+      .then((res) => {
+        wx.showToast({
+          title: "点赞成功~",
+          mask: true,
+          success: () => {
+                this.setData({
+                  isLike: !this.data.isLike,
+                });
+               },
+        });
       });
+      // 已经点赞，进行取消操作
+      // wx.showToast({
+      //   title: "点赞成功",
+      //   mask: true,
+      //   success: () => {
+      //     console.log("成功");
+      //     this.setData({
+      //       isLike: !this.data.isLike,
+      //     });
+      //   },
+      //   fail: () => {
+      //     console.log("失败");
+      //   },
+      // });
     } else {
       // 已经取消，进行点赞操作
-      wx.showToast({
-        title: "取消点赞",
-        mask: true,
-        icon: "none",
-        success: () => {
-          console.log("成功");
-          this.setData({
-            isLike: !this.data.isLike,
-          });
-        },
-        fail: () => {
-          console.log("失败");
-        },
+      db.collection("good")
+      .where({
+        _openid: this.data.openid,
+        bookid: this.data.bookInfo.id,
+      })
+      .remove()
+      .then((res) => {
+        wx.showToast({
+          title: "取消点赞",
+          icon: "none",
+          mask: true,
+          success: () => {
+                this.setData({
+                isLike: !this.data.isLike,
+                 });
+               },
+        });
       });
+
+
+
+
+
+
+
+
+      // wx.showToast({
+      //   title: "取消点赞",
+      //   mask: true,
+      //   icon: "none",
+      //   success: () => {
+      //     console.log("成功");
+      //     this.setData({
+      //       isLike: !this.data.isLike,
+      //     });
+      //   },
+      //   fail: () => {
+      //     console.log("失败");
+      //   },
+      // });
     }
   },
   handleCollectBtn() {
@@ -102,6 +163,7 @@ Page({
           data: {
             bookInfo: this.data.bookInfo,
             bookid:this.data.bookInfo.id,
+            collectTime:db.serverDate(),
           },
         })
         .then((res) => {

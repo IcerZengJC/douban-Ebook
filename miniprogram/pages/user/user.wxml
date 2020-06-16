@@ -43,14 +43,17 @@
     </view>
   </navigator>
 </view>
+
 <view class="user_communicate">
+ <navigator url="/pages/user-good/user-good" hover-class="none">
   <view class="user_communicate_wrap">
     <view class="text_left">
       <text class="iconfont iconmail"></text>
-      <text class="text">我的消息</text>
+      <text class="text">我的点赞</text>
     </view>
     <view class="iconfont iconright"></view>
   </view>
+  </navigator>
   <view class="user_communicate_wrap">
     <view class="text_left">
       <text class="iconfont iconfriendfavor"></text>
