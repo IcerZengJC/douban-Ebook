@@ -11,6 +11,9 @@ App({
       })
     }
   },
+    getOpenidOnlyCloud: async function () {
+    return this.globalData.openid = this.globalData.openid || (await wx.cloud.callFunction({ name: 'login' }))
+  },
   globalData: {
     userInfo: null,
   },

@@ -75,3 +75,4 @@
     </view>
   </view>
 </view>
+<x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />
