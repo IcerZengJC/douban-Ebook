@@ -1,7 +1,7 @@
 const db = wx.cloud.database();
 let userInfo = {};
-let result={};
-let openid='';
+let result = {};
+let openid = "";
 //test.js
 Page({
   data: {
@@ -9,8 +9,8 @@ Page({
     isLike: false,
     isCollect: false,
     bookInfo: [],
-    isLogin:false,
-    modelShow:false,
+    isLogin: false,
+    modelShow: false,
   },
   bookBox: [],
   onLoad: function (option) {
@@ -26,66 +26,63 @@ Page({
       });
     });
 
-     wx.getSetting({
+    wx.getSetting({
       success: async (res) => {
-        if (res.authSetting['scope.userInfo']) {
+        if (res.authSetting["scope.userInfo"]) {
           this.setData({
-            isLogin:true,
-          })
-        var app = getApp()
-      this.result = await app.getOpenidOnlyCloud()
-      this.openid=app.globalData.openid.result.openid
-        db.collection("collectBook")
-          .where({
-            _openid: this.openid,
-            bookid: this.data.bookInfo.id,
-          })
-          .get()
-          .then((res) => {
-            console.log(this.data.openid);
-            if (res.data.length != 0) {
-              this.setData({
-                isCollect: true,
-              });
-              let { isCollect } = this.data;
-            }
+            isLogin: true,
           });
+          var app = getApp();
+          this.result = await app.getOpenidOnlyCloud();
+          this.openid = app.globalData.openid.result.openid;
+          db.collection("collectBook")
+            .where({
+              _openid: this.openid,
+              bookid: this.data.bookInfo.id,
+            })
+            .get()
+            .then((res) => {
+              console.log(this.data.openid);
+              if (res.data.length != 0) {
+                this.setData({
+                  isCollect: true,
+                });
+                let { isCollect } = this.data;
+              }
+            });
 
           db.collection("likeBook")
-          .where({
-            _openid: this.openid,
-            bookid: this.data.bookInfo.id,
-          })
-          .get()
-          .then((res) => {
-            console.log(this.data.openid);
-            if (res.data.length != 0) {
-              this.setData({
-                isLike: true,
-              });
-              let { isLike } = this.data;
-            }
-          });
+            .where({
+              _openid: this.openid,
+              bookid: this.data.bookInfo.id,
+            })
+            .get()
+            .then((res) => {
+              console.log(this.data.openid);
+              if (res.data.length != 0) {
+                this.setData({
+                  isLike: true,
+                });
+                let { isLike } = this.data;
+              }
+            });
 
           db.collection("history")
-          .doc(
-            this.openid+'_'+this.data.bookInfo.id
-          )
-          .set({
-            data:{
-              bookInfo: this.data.bookInfo,
-              historyTime:db.serverDate(),
-            }
-          })
-          .then((res) => {
-            console.log(1)
-            console.log(res);
-            console.log(1)
-          });
-        
-        } 
-      }
-    })
+            .doc(this.openid + "_" + this.data.bookInfo.id)
+            .set({
+              data: {
+                bookInfo: this.data.bookInfo,
+                historyTime: db.serverDate(),
+              },
+            })
+            .then((res) => {
+              console.log(1);
+              console.log(res);
+              console.log(1);
+            });
+        }
+      },
+    });
   },
   handleShowAll() {
     this.setData({
@@ -96,33 +93,33 @@ Page({
     let { isLike } = this.data;
     // 是否点击
     if (!isLike) {
-		if(this.data.isLogin){
-      db.collection("likeBook")
-      .add({
-        data: {
-          bookInfo: this.data.bookInfo,
-          bookid:this.data.bookInfo.id,
-          likeBookTime:db.serverDate(),
-        },
-      })
-      .then((res) => {
-        wx.showToast({
-          title: "点赞成功~",
-          mask: true,
-          success: () => {
+      if (this.data.isLogin) {
+        db.collection("likeBook")
+          .add({
+            data: {
+              bookInfo: this.data.bookInfo,
+              bookid: this.data.bookInfo.id,
+              likeBookTime: db.serverDate(),
+            },
+          })
+          .then((res) => {
+            wx.showToast({
+              title: "点赞成功~",
+              mask: true,
+              success: () => {
                 this.setData({
                   isLike: !this.data.isLike,
                 });
-               },
+              },
+            });
+          });
+      } else {
+        wx.showToast({
+          title: "请先登录账号",
+          icon: "none",
+          mask: true,
         });
-      });
-		}else{
-      wx.showToast({
-        title: "请先登录账号",
-        icon: "none",
-        mask: true,
-      });
-    }
+      }
       // 已经点赞，进行取消操作
       // wx.showToast({
       //   title: "点赞成功",
@@ -140,30 +137,23 @@ Page({
     } else {
       // 已经取消，进行点赞操作
       db.collection("likeBook")
-      .where({
-        _openid: this.data.openid,
-        bookid: this.data.bookInfo.id,
-      })
-      .remove()
-      .then((res) => {
-        wx.showToast({
-          title: "取消点赞",
-          icon: "none",
-          mask: true,
-          success: () => {
-                this.setData({
+        .where({
+          _openid: this.data.openid,
+          bookid: this.data.bookInfo.id,
+        })
+        .remove()
+        .then((res) => {
+          wx.showToast({
+            title: "取消点赞",
+            icon: "none",
+            mask: true,
+            success: () => {
+              this.setData({
                 isLike: !this.data.isLike,
-                 });
-               },
+              });
+            },
+          });
         });
-      });
-
-
-
-
-
-
-
 
       // wx.showToast({
       //   title: "取消点赞",
@@ -182,38 +172,37 @@ Page({
     }
   },
   handleCollectBtn() {
-    
     let { isCollect } = this.data;
 
     if (!isCollect) {
-		if(this.data.isLogin){
-      console.log(this.data.openid);
-      db.collection("collectBook")
-        .add({
-          data: {
-            bookInfo: this.data.bookInfo,
-            bookid:this.data.bookInfo.id,
-            collectTime:db.serverDate(),
-          },
-        })
-        .then((res) => {
-          wx.showToast({
-            title: "收藏成功~",
-            mask: true,
-            success: () => {
+      if (this.data.isLogin) {
+        console.log(this.data.openid);
+        db.collection("collectBook")
+          .add({
+            data: {
+              bookInfo: this.data.bookInfo,
+              bookid: this.data.bookInfo.id,
+              collectTime: db.serverDate(),
+            },
+          })
+          .then((res) => {
+            wx.showToast({
+              title: "收藏成功~",
+              mask: true,
+              success: () => {
                 this.setData({
                   isCollect: !this.data.isCollect,
                 });
-               },
+              },
+            });
           });
+      } else {
+        wx.showToast({
+          title: "请先登录账号",
+          icon: "none",
+          mask: true,
         });
-		}else{
-      wx.showToast({
-        title: "请先登录账号",
-        icon: "none",
-        mask: true,
-      });
-    }
+      }
     } else {
       db.collection("collectBook")
         .where({
@@ -230,5 +219,4 @@ Page({
         });
     }
   },
-
 });

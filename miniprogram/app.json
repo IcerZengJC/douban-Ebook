@@ -13,6 +13,7 @@
     "pages/user/user",
     "pages/user-bloghistory/user-bloghistory",
     "pages/user-readhistory/user-readhistory",
+    "pages/user-good/user-good",
     "pages/user-collect/user-collect",
     "pages/user-like/user-like",
     "pages/setting/setting",
