@@ -128,6 +128,21 @@
 					"id": -1,
 					"name": "我的收藏",
 					"pathName": "pages/user-collect/user-collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论详情",
+					"pathName": "pages/blog-comment/blog-comment",
+					"query": "blogId=362458465ee9d3550002469f232d87b1",
 					"scene": null
 				}
 			]

@@ -1,5 +1,6 @@
 <!-- pages/blog/blog.wxml -->
 <view class="container">
+  <!-- 顶部栏功能栏 -->
   <view class="header">
     <view class="publish-container" bind:tap="onPublish">
       <text class="iconfont iconadd"></text>
@@ -10,12 +11,15 @@
   </view>
   <!-- 博客卡片列表 -->
   <view class="blog-list">
-    <block wx:for="{{blogList}}" wx:key="_id">
+    <block wx:for="{{blogList}}" wx:key="_id">  
       <view class="blog-panel">
+        <!-- 博客文字 -->
         <x-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment" />
-        <x-blog-ctrl blogId="{{item._id}}" blog="{{item}}" />
+        <!-- 博客点赞，评论，转发 -->
+        <x-blog-ctrl blogId="{{item._id}}" blog="{{item}}" blogLike="{{item.likeNum}}" blogComment="" />
       </view>
     </block>
   </view>
+  <!-- 授权登录弹窗 -->
   <x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail"></x-login>
 </view>

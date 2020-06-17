@@ -1,14 +1,14 @@
 <view class="ctrl">
   <view class="ctrl-item" bind:tap="onLike">
-    <text class="iconfont iconappreciate"></text>
-    <text class="item-text">点赞</text>
+    <text class="iconfont iconappreciate {{isLike?'is-like':''}}"></text>
+    <text class="item-text ">点赞({{blogLike}})</text>
   </view>
   <view class="ctrl-item" bind:tap="onComment">
     <text class="iconfont iconcomment"></text>
-    <text class="item-text">评论</text>
+    <text class="item-text">评论({{!getCommentNum?blogComment:getCommentNum}})</text>
   </view>
   <view class="ctrl-item">
-    <text class="iconfont iconshare"></text>
+    <text class="iconfont iconshare1"></text>
     <text class="item-text">分享</text>
     <button open-type="share" data-blogid="{{blogId}}" data-blog="{{blog}}" class="share-btn" hover-class="share-hover"></button>
   </view>

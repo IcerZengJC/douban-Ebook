@@ -17,7 +17,9 @@
       <view class="comment-content">{{item.content}}</view>
     </view>
   </block>
+  {{blog.likeNum}}-{{commentList.length}}-{{commentLen}}-
+  {{blog._id}}
 </view>
 <view class="blog-ctrl">
-  <x-blog-ctrl blogId="{{blog._id}}" bind:refreshCommentList="_getBlogDetail" />
+  <x-blog-ctrl blogId="{{blog._id}}" blog="{{blog}}" blogLike="{{blog.likeNum}}" blogComment="{{commentList.length}}" bind:refreshCommentList="_getBlogDetail" />
 </view>

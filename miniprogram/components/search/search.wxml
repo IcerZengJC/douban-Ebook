@@ -1,5 +1,4 @@
 <view class="container">
-  <input class="bar" placeholder="{{placeholder}}" bindinput="onInput">
-  </input>
-  <view class="search" bind:tap="onSearch">搜索</view>
+  <input class="bar" placeholder="{{placeholder}}" bindinput="onInput" placeholder-style="font-size:32rpx"></input>
+  <view class="search iconfont iconsearch_light" bind:tap="onSearch"></view>
 </view>
