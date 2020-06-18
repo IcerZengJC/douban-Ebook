@@ -7,13 +7,6 @@
 </view>
 <view class="setting_manage_wrap">
   <view class="notice_function">
-    <view class="function_left">清理缓存</view>
-    <view class="function_right">
-      <view class="function_right_value">123.4K</view>
-      <view class="iconfont iconright"></view>
-    </view>
-  </view>
-  <view class="notice_function">
     <view class="function_left">关于我们</view>
     <view class="function_right">
       <view class="function_right_value">v 2.1.1</view>
@@ -31,17 +24,19 @@
   <view class="notice_function">
     <view class="function_left">联系我们</view>
     <view class="function_right">
-      <view class="function_right_value">0791-xxxxxxxx</view>
+      <view class="function_right_value">0791-12345678</view>
       <view class="iconfont iconright"></view>
     </view>
     <button open-type="contact"></button>
   </view>
   <!-- 后续改成navigator -->
-  <navigator class="notice_function" url="/pages/feedback/feedback">
+  <view class="notice_function">
     <view class="function_left">意见反馈</view>
     <view class="function_right">
       <view class="iconfont iconright"></view>
     </view>
-  </navigator>
+    <button open-type="feedback"></button>
+  </view>
 </view>
 <navigator class="user_loginout_wrap">退出登录</navigator>
+<!-- <button open-type="feedback">意见反馈</button> -->

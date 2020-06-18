@@ -1,7 +1,7 @@
 <view class="ctrl">
   <view class="ctrl-item" bind:tap="onLike">
     <text class="iconfont iconappreciate {{isLike?'is-like':''}}"></text>
-    <text class="item-text ">点赞({{blogLike}})</text>
+    <text class="item-text ">点赞({{likeNum?likeNum:blogLike}})</text>
   </view>
   <view class="ctrl-item" bind:tap="onComment">
     <text class="iconfont iconcomment"></text>

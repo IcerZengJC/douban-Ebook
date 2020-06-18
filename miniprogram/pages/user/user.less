@@ -6,12 +6,17 @@ page {
 
 .user_info_wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 30rpx 0;
   padding: 40rpx 20rpx 40rpx 40rpx;
   background-color: #fff;
-
+  .user_loginbtn {
+    background-color: var(--themeColor);
+    padding: 30rpx 40rpx;
+    border-radius: 50rpx;
+    color: white;
+  }
   .text_left {
     flex: 9;
     display: flex;
@@ -38,11 +43,13 @@ page {
       }
 
       .user_introduction {
-        margin-top: 10rpx;
+        margin-top: 15rpx;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        .dot {
+        }
       }
     }
   }

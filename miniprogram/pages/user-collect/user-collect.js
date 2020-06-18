@@ -27,7 +27,8 @@ Page({
         db.collection("collectBook")
           .where({
             _openid: this.data.openid,
-          }).orderBy('collectTime','desc')
+          })
+          .orderBy("collectTime", "desc")
           .get()
           .then((res) => {
             let bookList = [];
@@ -43,6 +44,18 @@ Page({
             // console.log(this.data.bookList);
           });
       });
+  },
+  // 点击书籍跳转至详情页面
+  handleToBookPage(e) {
+    let { index } = e.currentTarget.dataset;
+    let { bookList } = this.data;
+    wx.navigateTo({
+      url: "../book/book?id=" + bookList[index].id,
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit("acceptDataFromOpenerPage", bookList[index]);
+      },
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

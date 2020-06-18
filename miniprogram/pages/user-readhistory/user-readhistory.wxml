@@ -1,2 +1,49 @@
-<!--pages/user-readhistory/user-readhistory.wxml-->
-<text>pages/user-readhistory/user-readhistory.wxml</text>
+<view class="collect" wx:for="{{bookList}}" wx:key="index">
+  <view class="collect_word " bind:tap="handleShowWrap" data-index="{{index}}">
+    <block wx:if="{{index===0}}">
+      / 一天内浏览过 /
+      <text class="iconfont {{!showList[index]?'iconunfold':'iconfold'}}"></text>
+    </block>
+    <block wx:elif="{{index===1}}" bind:tap="handleShowWrap" data-index="{{index}}">
+      / 七天内浏览过 /
+      <text class="iconfont iconunfold"></text>
+    </block>
+    <block wx:else bind:tap="handleShowWrap" data-index="{{index}}">
+      / 超过七天浏览过 /
+      <text class="iconfont iconunfold"></text>
+    </block>
+  </view>
+  <block wx:if="{{bookList[index].length!==0}}">
+    <view hidden="{{!showList[index]}}">
+      <view class="collect_wrap" hidden="{{showList[index]}}" wx:for="{{item}}" wx:key="*this" wx:for-index="idx" bind:tap="handleToBookPage" data-index="{{index}}" data-idx="{{idx}}">
+        <view class="collect_index">
+          <view class="collect_num">{{idx+1}}</view>
+        </view>
+        <view class="collect_img">
+          <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
+        </view>
+        <view class="collect_text">
+          <view class="collect_title">{{item.title}}</view>
+          <view class="collect_intro">{{item.summary!==''?item.summary:'本书暂无介绍~'}}</view>
+          <view class="collect_info">
+            {{item.author!==''?item.author.length==1?item.author[0]:item.author[0]+'等':'暂无'}}
+            <text class="dot">·</text>
+            评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
+            <text class="dot">·</text>
+            {{index}}
+          </view>
+          <view class="collect_info">
+            日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
+            <text class="dot">·</text>
+            出版社：{{item.publisher!==''?item.publisher:'暂未找到~'}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view hidden="{{!showList[index]}}">
+      <view class="collect_none">该时间段暂无浏览记录</view>
+    </view>
+  </block>
+</view>

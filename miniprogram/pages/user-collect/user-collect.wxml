@@ -4,7 +4,10 @@
   <text class="iconfont iconlikefill"></text>
 </view>
 <view class="collect">
-  <view class="collect_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
+  <view class="collect_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleToBookPage" data-index="{{index}}">
+    <view class="collect_index">
+      <view class="collect_num">{{index+1}}</view>
+    </view>
     <view class="collect_img">
       <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
     </view>

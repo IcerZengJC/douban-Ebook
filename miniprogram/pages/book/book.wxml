@@ -65,7 +65,7 @@
       <view class="iconfont {{showAll?'iconfold':'iconunfold'}} show_all" bind:tap="handleShowAll"></view>
     </view>
   </view>
-  <view class="book_catalog">查看目录</view>
+  <view class="book_catalog" bind:tap="handleToCatalog">查看目录</view>
 </view>
 <view class="book_tags">
   <view class="tags_title">常用标签</view>

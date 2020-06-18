@@ -35,6 +35,7 @@ Component({
 
       let getCommentNum;
       let { blogId } = this.properties;
+      let { blogLike } = this.properties;
 
       db.collection("blog-comment")
         .where({
@@ -48,6 +49,9 @@ Component({
             getCommentNum,
           });
         });
+      this.setData({
+        likeNum: blogLike,
+      });
       // console.log(blogLike);
     },
   },
@@ -82,7 +86,7 @@ Component({
       console.log(this.properties);
 
       let { commentNum } = this.data;
-
+      
       console.log(commentNum);
       let { isLike } = this.data;
       let { likeNum } = this.data;

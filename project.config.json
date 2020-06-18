@@ -144,6 +144,13 @@
 					"pathName": "pages/blog-comment/blog-comment",
 					"query": "blogId=362458465ee9d3550002469f232d87b1",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "最近观看",
+					"pathName": "pages/user-readhistory/user-readhistory",
+					"query": "blogId=362458465ee9d3550002469f232d87b1",
+					"scene": null
 				}
 			]
 		}

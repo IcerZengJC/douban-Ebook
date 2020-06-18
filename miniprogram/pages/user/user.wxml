@@ -1,18 +1,28 @@
-<view class="user_info_wrap" bind:tap="onLogin">
-  <view class="text_left">
-    <view class="user_img">
-      <view class="user_img_wrap">
-        <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
+<view class="user_info_wrap">
+  <block wx:if="{{!isLogin}}">
+    <view class="user_loginbtn" bind:tap="onLogin">点击进行登录</view>
+  </block>
+  <block wx:else>
+    <view class="text_left">
+      <view class="user_img">
+        <view class="user_img_wrap">
+          <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
+        </view>
+      </view>
+      <view class="user_intro">
+        <view class="user_name">{{userInfo.nickName}}</view>
+        <view class="user_introduction">
+          <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, voluptatum magnam? Expedita, maxime? Laudantium, voluptatibus fuga blanditiis magnam minima dignissimos cumque hic nesciunt quae voluptates nihil rem saepe id aliquid? -->
+          {{userInfo.country}}
+          <text class="dot">·</text>
+          {{userInfo.province}}
+          <text class="dot">·</text>
+          {{userInfo.city}}
+        </view>
       </view>
     </view>
-    <view class="user_intro">
-      <view class="user_name">{{userInfo.nickName}}</view>
-      <view class="user_introduction">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, voluptatum magnam? Expedita, maxime? Laudantium, voluptatibus fuga blanditiis magnam minima dignissimos cumque hic nesciunt quae voluptates nihil rem saepe id aliquid?
-      </view>
-    </view>
-  </view>
-  <view class="iconfont iconright"></view>
+    <view class="iconfont iconright"></view>
+  </block>
 </view>
 <view class="user_communicate" bind:tap="onLogin">
   <navigator url="/pages/user-readhistory/user-readhistory" hover-class="none">
@@ -24,11 +34,11 @@
       <view class="iconfont iconright"></view>
     </view>
   </navigator>
-  <navigator url="/pages/user-bloghistory/user-bloghistory" hover-class="none">
+  <navigator url="/pages/user-like/user-like" hover-class="none">
     <view class="user_communicate_wrap">
       <view class="text_left">
-        <text class="iconfont iconcomment"></text>
-        <text class="text">我的观点</text>
+        <text class="iconfont iconappreciate"></text>
+        <text class="text">我点赞的书籍</text>
       </view>
       <view class="iconfont iconright"></view>
     </view>
@@ -43,38 +53,16 @@
     </view>
   </navigator>
 </view>
-
 <view class="user_communicate">
- <navigator url="/pages/user-good/user-good" hover-class="none">
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconmail"></text>
-      <text class="text">我的点赞</text>
+  <navigator url="/pages/user-bloghistory/user-bloghistory" hover-class="none">
+    <view class="user_communicate_wrap">
+      <view class="text_left">
+        <text class="iconfont iconcomment"></text>
+        <text class="text">我的观点</text>
+      </view>
+      <view class="iconfont iconright"></view>
     </view>
-    <view class="iconfont iconright"></view>
-  </view>
   </navigator>
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconfriendfavor"></text>
-      <text class="text">我关注的用户</text>
-    </view>
-    <view class="iconfont iconright"></view>
-  </view>
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconfriend"></text>
-      <text class="text">关注我的用户</text>
-    </view>
-    <view class="iconfont iconright"></view>
-  </view>
-  <view class="user_communicate_wrap">
-    <view class="text_left">
-      <text class="iconfont iconappreciate"></text>
-      <text class="text">我赞过的观点</text>
-    </view>
-    <view class="iconfont iconright"></view>
-  </view>
 </view>
 <navigator class="user_setting_wrap" url="/pages/setting/setting">设置</navigator>
 <x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />

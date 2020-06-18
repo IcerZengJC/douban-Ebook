@@ -5,11 +5,17 @@ page {
 }
 .user_info_wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 30rpx 0;
   padding: 40rpx 20rpx 40rpx 40rpx;
   background-color: #fff;
+}
+.user_info_wrap .user_loginbtn {
+  background-color: var(--themeColor);
+  padding: 30rpx 40rpx;
+  border-radius: 50rpx;
+  color: white;
 }
 .user_info_wrap .text_left {
   flex: 9;
@@ -34,7 +40,7 @@ page {
   font-size: 38rpx;
 }
 .user_info_wrap .text_left .user_intro .user_introduction {
-  margin-top: 10rpx;
+  margin-top: 15rpx;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

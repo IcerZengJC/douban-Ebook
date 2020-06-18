@@ -1,9 +1,11 @@
 .collect_word {
+  margin: 0 20rpx;
+  padding: 30rpx 0;
   font-size: 36rpx;
   text-align: center;
-  margin: 20rpx;
-  color: crimson;
   font-weight: 600;
+  color: crimson;
+  border-bottom: 1rpx solid rgb(238, 238, 238);
 }
 .collect {
   .collect_wrap {
@@ -11,9 +13,23 @@
     padding: 25rpx;
     background-color: #fff;
     display: flex;
-
+    border-bottom: 1rpx solid rgb(238, 238, 238);
+    .collect_index {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .collect_num {
+        width: 50rpx;
+        height: 50rpx;
+        line-height: 50rpx;
+        background-color: var(--themeColor);
+        text-align: center;
+        color: white;
+        border-radius: 50%;
+      }
+    }
     .collect_img {
-      flex: 2;
+      flex: 6;
 
       image {
         margin: 0 auto;
@@ -24,7 +40,7 @@
     }
 
     .collect_text {
-      flex: 5;
+      flex: 12;
       display: flex;
       flex-direction: column;
       justify-content: space-around;

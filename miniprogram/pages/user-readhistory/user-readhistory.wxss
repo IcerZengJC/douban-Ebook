@@ -1,1 +1,81 @@
-/* pages/user-readhistory/user-readhistory.wxss */
+.collect_word {
+  position: relative;
+  margin: 0 20rpx;
+  padding: 30rpx 0;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: 600;
+  /* color: rgb(165, 165, 165); */
+  color: crimson;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.collect_word .iconfont {
+  position: absolute;
+  right: 50rpx;
+  color: rgb(165, 165, 165);
+}
+.collect .collect_wrap {
+  margin: 15rpx 0;
+  padding: 25rpx;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.collect .collect_wrap .collect_index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collect .collect_wrap .collect_index .collect_num {
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: var(--themeColor);
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+}
+.collect .collect_wrap .collect_img {
+  flex: 6;
+}
+.collect .collect_wrap .collect_img image {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 60px;
+  display: block;
+}
+.collect .collect_wrap .collect_text {
+  flex: 12;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.collect .collect_wrap .collect_text .collect_intro {
+  color: #909090;
+  font-size: 32rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.collect .collect_wrap .collect_text .collect_intro .dot {
+  margin: 0 5rpx;
+}
+.collect .collect_wrap .collect_text .collect_info {
+  color: #909090;
+  font-size: 32rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.collect .collect_none {
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

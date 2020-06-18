@@ -1,33 +1,34 @@
-/* pages/user-good/user-good.wxss */
-.collect_word {
+.like_word {
+  margin: 0 20rpx;
+  padding: 30rpx 0;
   font-size: 36rpx;
   text-align: center;
-  margin: 20rpx;
-  color: crimson;
   font-weight: 600;
+  color: crimson;
+  border-bottom: 1rpx solid rgb(238, 238, 238);
 }
-.collect .collect_wrap {
+.like .like_wrap {
   margin: 15rpx 0;
   padding: 25rpx;
   background-color: #fff;
   display: flex;
 }
-.collect .collect_wrap .collect_img {
+.like .like_wrap .like_img {
   flex: 2;
 }
-.collect .collect_wrap .collect_img image {
+.like .like_wrap .like_img image {
   margin: 0 auto;
   width: 80%;
   min-width: 60px;
   display: block;
 }
-.collect .collect_wrap .collect_text {
+.like .like_wrap .like_text {
   flex: 5;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.collect .collect_wrap .collect_text .collect_intro {
+.like .like_wrap .like_text .like_intro {
   color: #909090;
   font-size: 32rpx;
   display: -webkit-box;
@@ -37,10 +38,10 @@
   word-wrap: break-word;
   word-break: break-all;
 }
-.collect .collect_wrap .collect_text .collect_intro .dot {
+.like .like_wrap .like_text .like_intro .dot {
   margin: 0 5rpx;
 }
-.collect .collect_wrap .collect_text .collect_info {
+.like .like_wrap .like_text .like_info {
   color: #909090;
   font-size: 32rpx;
   display: -webkit-box;

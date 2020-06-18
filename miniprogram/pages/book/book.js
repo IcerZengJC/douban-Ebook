@@ -35,6 +35,7 @@ Page({
           var app = getApp();
           this.result = await app.getOpenidOnlyCloud();
           this.openid = app.globalData.openid.result.openid;
+          console.log(this.openid);
           db.collection("collectBook")
             .where({
               _openid: this.openid,
@@ -42,7 +43,6 @@ Page({
             })
             .get()
             .then((res) => {
-              console.log(this.data.openid);
               if (res.data.length != 0) {
                 this.setData({
                   isCollect: true,
@@ -58,7 +58,6 @@ Page({
             })
             .get()
             .then((res) => {
-              console.log(this.data.openid);
               if (res.data.length != 0) {
                 this.setData({
                   isLike: true,
@@ -76,9 +75,7 @@ Page({
               },
             })
             .then((res) => {
-              console.log(1);
               console.log(res);
-              console.log(1);
             });
         }
       },
@@ -99,7 +96,7 @@ Page({
             data: {
               bookInfo: this.data.bookInfo,
               bookid: this.data.bookInfo.id,
-              likeBookTime: db.serverDate(),
+              createTime: db.serverDate(),
             },
           })
           .then((res) => {
@@ -120,20 +117,6 @@ Page({
           mask: true,
         });
       }
-      // 已经点赞，进行取消操作
-      // wx.showToast({
-      //   title: "点赞成功",
-      //   mask: true,
-      //   success: () => {
-      //     console.log("成功");
-      //     this.setData({
-      //       isLike: !this.data.isLike,
-      //     });
-      //   },
-      //   fail: () => {
-      //     console.log("失败");
-      //   },
-      // });
     } else {
       // 已经取消，进行点赞操作
       db.collection("likeBook")
@@ -154,21 +137,6 @@ Page({
             },
           });
         });
-
-      // wx.showToast({
-      //   title: "取消点赞",
-      //   mask: true,
-      //   icon: "none",
-      //   success: () => {
-      //     console.log("成功");
-      //     this.setData({
-      //       isLike: !this.data.isLike,
-      //     });
-      //   },
-      //   fail: () => {
-      //     console.log("失败");
-      //   },
-      // });
     }
   },
   handleCollectBtn() {
@@ -176,7 +144,6 @@ Page({
 
     if (!isCollect) {
       if (this.data.isLogin) {
-        console.log(this.data.openid);
         db.collection("collectBook")
           .add({
             data: {
@@ -218,5 +185,15 @@ Page({
           });
         });
     }
+  },
+  handleToCatalog() {
+    let { bookInfo } = this.data;
+    wx.navigateTo({
+      url: "../book-catalog/book-catalog?bookInfo=" + bookInfo.id,
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit("acceptDataFromOpenerPage", bookInfo.catalog);
+      },
+    });
   },
 });

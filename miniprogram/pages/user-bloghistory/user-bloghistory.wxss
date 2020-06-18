@@ -1,1 +1,3 @@
-/* pages/user-bloghisotry/user-bloghistory.wxss */
+.blog-panel{
+  padding: 20rpx;
+}

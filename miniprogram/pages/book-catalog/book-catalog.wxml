@@ -1,0 +1,13 @@
+<scroll-view scroll-y="{{true}}" class="catalog">
+  <block wx:if="{{catalog.length===0}}">
+    <view class="catalog_none">
+      <text class="iconfont iconzanwushuju1"></text>
+      暂无章节信息哦~
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:for="{{catalog}}" wx:key="*this">
+      <view class="catalog_wrap">{{item}}</view>
+    </block>
+  </block>
+</scroll-view>
