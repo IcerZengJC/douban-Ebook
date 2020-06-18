@@ -3,11 +3,9 @@
     <view class="user_loginbtn" bind:tap="onLogin">点击进行登录</view>
   </block>
   <block wx:else>
-    <view class="text_left">
+    <view class="user_info">
       <view class="user_img">
-        <view class="user_img_wrap">
-          <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
-        </view>
+        <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
       </view>
       <view class="user_intro">
         <view class="user_name">{{userInfo.nickName}}</view>
@@ -34,20 +32,20 @@
       <view class="iconfont iconright"></view>
     </view>
   </navigator>
-  <navigator url="/pages/user-like/user-like" hover-class="none">
-    <view class="user_communicate_wrap">
-      <view class="text_left">
-        <text class="iconfont iconappreciate"></text>
-        <text class="text">我点赞的书籍</text>
-      </view>
-      <view class="iconfont iconright"></view>
-    </view>
-  </navigator>
   <navigator url="/pages/user-collect/user-collect" hover-class="none">
     <view class="user_communicate_wrap">
       <view class="text_left">
         <text class="iconfont iconfavor"></text>
         <text class="text">我的收藏</text>
+      </view>
+      <view class="iconfont iconright"></view>
+    </view>
+  </navigator>
+  <navigator url="/pages/user-like/user-like" hover-class="none">
+    <view class="user_communicate_wrap">
+      <view class="text_left">
+        <text class="iconfont iconappreciate"></text>
+        <text class="text">我点赞的书籍</text>
       </view>
       <view class="iconfont iconright"></view>
     </view>
@@ -59,6 +57,13 @@
       <view class="text_left">
         <text class="iconfont iconcomment"></text>
         <text class="text">我的观点</text>
+      </view>
+      <view class="iconfont iconright"></view>
+    </view>
+    <view class="user_communicate_wrap">
+      <view class="text_left">
+        <text class="iconfont iconappreciate"></text>
+        <text class="text">我点赞的观点</text>
       </view>
       <view class="iconfont iconright"></view>
     </view>

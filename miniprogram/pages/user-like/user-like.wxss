@@ -1,12 +1,3 @@
-.like_word {
-  margin: 0 20rpx;
-  padding: 30rpx 0;
-  font-size: 36rpx;
-  text-align: center;
-  font-weight: 600;
-  color: crimson;
-  border-bottom: 1rpx solid rgb(238, 238, 238);
-}
 .like .like_wrap {
   margin: 15rpx 0;
   padding: 25rpx;

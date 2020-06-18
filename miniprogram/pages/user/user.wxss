@@ -17,29 +17,31 @@ page {
   border-radius: 50rpx;
   color: white;
 }
-.user_info_wrap .text_left {
+.user_info_wrap .user_info {
   flex: 9;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.user_info_wrap .text_left .user_img {
+.user_info_wrap .user_info .user_img {
   flex: 2;
-  overflow: hidden;
+  margin-right: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.user_info_wrap .text_left .user_img .user_img_wrap {
+.user_info_wrap .user_info .user_img image {
   border-radius: 50%;
-  overflow: hidden;
-  width: 90%;
+  width: 100%;
 }
-.user_info_wrap .text_left .user_intro {
+.user_info_wrap .user_info .user_intro {
   flex: 5;
 }
-.user_info_wrap .text_left .user_intro .user_name {
+.user_info_wrap .user_info .user_intro .user_name {
   font-weight: 600;
   font-size: 38rpx;
 }
-.user_info_wrap .text_left .user_intro .user_introduction {
+.user_info_wrap .user_info .user_intro .user_introduction {
   margin-top: 15rpx;
   display: -webkit-box;
   -webkit-line-clamp: 2;

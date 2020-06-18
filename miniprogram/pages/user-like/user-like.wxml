@@ -1,9 +1,3 @@
-<!-- pages/user-good/user-good.wxml -->
-<view class="like_word">
-  <text class="iconfont iconlikefill"></text>
-  我的点赞
-  <text class="iconfont iconlikefill"></text>
-</view>
 <view class="like">
   <view class="like_wrap" wx:for="{{bookList}}" wx:key="*this" bind:tap="handleToBookPage" data-index="{{index}}">
     <view class="like_img">

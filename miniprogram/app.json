@@ -12,13 +12,11 @@
     "pages/blog-comment/blog-comment",
     "pages/blog-edit/blog-edit",
     "pages/user/user",
-    "pages/user-data/user-data",
     "pages/user-bloghistory/user-bloghistory",
     "pages/user-readhistory/user-readhistory",
     "pages/user-collect/user-collect",
     "pages/user-like/user-like",
-    "pages/setting/setting",
-    "pages/feedback/feedback"
+    "pages/setting/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",
