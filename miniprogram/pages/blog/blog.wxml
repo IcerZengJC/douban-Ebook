@@ -11,7 +11,7 @@
   </view>
   <!-- 博客卡片列表 -->
   <view class="blog-list">
-    <block wx:for="{{blogList}}" wx:key="_id">  
+    <block wx:for="{{blogList}}" wx:key="_id">
       <view class="blog-panel">
         <!-- 博客文字 -->
         <x-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment" />

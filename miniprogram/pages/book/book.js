@@ -182,6 +182,11 @@ Page({
             title: "取消收藏",
             icon: "none",
             mask: true,
+            success: () => {
+              this.setData({
+                isCollect: !this.data.isCollect,
+              });
+            },
           });
         });
     }

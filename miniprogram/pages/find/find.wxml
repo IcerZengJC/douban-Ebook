@@ -58,7 +58,7 @@
       <text class="iconfont iconlikefill"></text>
     </view>
     <view class="find_cart">
-      <view class="find_cart_wrap" wx:for="{{bookRecomond}}" wx:key="*this" bind:tap="handleGetId" data-index="{{index}}">
+      <view class="find_cart_wrap" wx:for="{{bookRecomond}}" wx:for-index="idx" wx:key="*this" bind:tap="handleGetLikeId" data-index="{{idx}}">
         <view class="find_cart_img">
           <image mode="widthFix" src="{{item.image!==''?item.image:'https://pics.images.ac.cn/image/5ee4f3ba27372.html'}}" />
         </view>
@@ -70,7 +70,7 @@
             <text class="dot">·</text>
             评分：{{item.rating.average!=='0.0'?item.rating.average:'暂无'}}
             <text class="dot">·</text>
-            {{index}}
+            {{idx}}
           </view>
           <view class="find_cart_info">
             日期：{{item.pubdate!==''?item.pubdate:'暂无'}}
@@ -82,8 +82,5 @@
     </view>
   </block>
   <view class="toTop iconfont iconicon-test1 " bind:tap="handleToTop"></view>
-  <!-- <block wx:if="{{bookList.length!==0}}" bind:tap="">
-    <view class="toTop iconfont iconicon-test1" bind:tap="handleToTop"></view>
-  </block> -->
 </scroll-view>
 <!-- 书单结束开始 -->

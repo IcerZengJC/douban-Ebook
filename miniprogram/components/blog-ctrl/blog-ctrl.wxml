@@ -17,6 +17,12 @@
 <x-bottom-model modelShow="{{modelShow}}" footerBottom="{{footerBottom}}">
   <form slot="model-content" report-submit="true" bind:submit="onSend">
     <textarea name="content" class="comment-content" placeholder="写评论" value="{{content}}" fixed="true" bindfocus="onFocus" bindblur="onBlur"></textarea>
-    <button class="send" size="mini" form-type="submit">发送</button>
+    <view class="comment-send-box">
+      <view class="comment-send">
+        发送
+        <button class="sendBtn" form-type="submit"></button>
+      </view>
+    </view>
+    <!-- <button class="comment-send " size="mini" form-type="submit">发送</button> -->
   </form>
 </x-bottom-model>
