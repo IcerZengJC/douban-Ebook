@@ -18,6 +18,7 @@ Page({
     this.setData({
       blogId: options.blogId,
     });
+    console.log(this.data.blogId)
     this._getBlogDetail();
   },
 
@@ -49,7 +50,11 @@ Page({
         wx.hideLoading();
       });
   },
-
+  changeParentData: function () {
+    const pages = getCurrentPages();
+    const prevPage = pages[pages.length - 2];
+    prevPage.onPullDownRefresh();
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -63,12 +68,16 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {},
+  onHide: function () {
+   
+  },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {},
+  onUnload: function () {
+    this.changeParentData()
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

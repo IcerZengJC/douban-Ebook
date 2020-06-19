@@ -14,7 +14,7 @@
     </view>
   </view>
   <view class="notice_function">
-    <view class="function_left">把ETalk分享给朋友</view>
+    <view class="function_left">把芝士书咖分享给朋友</view>
     <view class="function_right">
       <view class="iconfont iconright"></view>
     </view>
@@ -24,7 +24,7 @@
   <view class="notice_function">
     <view class="function_left">联系我们</view>
     <view class="function_right">
-      <view class="function_right_value">0791-12345678</view>
+      <view class="function_right_value">+86-18942339323</view>
       <view class="iconfont iconright"></view>
     </view>
     <button open-type="contact"></button>
@@ -39,4 +39,3 @@
   </view>
 </view>
 <navigator class="user_loginout_wrap">退出登录</navigator>
-<!-- <button open-type="feedback">意见反馈</button> -->

@@ -1,6 +1,6 @@
 <view class="user_info_wrap">
   <block wx:if="{{!isLogin}}">
-    <view class="user_loginbtn" bind:tap="onLogin">点击进行登录</view>
+    <view class="user_loginbtn" bindtap="onLogin">点击进行登录</view>
   </block>
   <block wx:else>
     <view class="user_info">
@@ -60,6 +60,8 @@
       </view>
       <view class="iconfont iconright"></view>
     </view>
+     </navigator>
+     <navigator url="/pages/user-bloglike/user-bloglike" hover-class="none">
     <view class="user_communicate_wrap">
       <view class="text_left">
         <text class="iconfont iconappreciate"></text>
@@ -67,7 +69,8 @@
       </view>
       <view class="iconfont iconright"></view>
     </view>
-  </navigator>
+       </navigator>
+ 
 </view>
 <navigator class="user_setting_wrap" url="/pages/setting/setting">设置</navigator>
 <x-login modelShow="{{modelShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />

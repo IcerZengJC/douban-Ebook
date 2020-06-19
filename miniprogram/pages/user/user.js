@@ -12,6 +12,29 @@ Page({
     },
     isLogin: false,
   },
+    // 发布功能
+    onLogin() {
+      // 判断用户是否授权
+      wx.getSetting({
+        success: (res) => {
+          console.log(res);
+          if (res.authSetting["scope.userInfo"]) {
+            wx.getUserInfo({
+              complete: (res) => {
+                console.log(res);
+                this.onLoginSuccess({
+                  detail: res.userInfo,
+                });
+              },
+            });
+          } else {
+            this.setData({
+              modelShow: true,
+            });
+          }
+        },
+      });
+    },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -30,29 +53,7 @@ Page({
       },
     });
   },
-  // 发布功能
-  onLogin() {
-    // 判断用户是否授权
-    wx.getSetting({
-      success: (res) => {
-        console.log(res);
-        if (res.authSetting["scope.userInfo"]) {
-          wx.getUserInfo({
-            complete: (res) => {
-              console.log(res);
-              this.onLoginSuccess({
-                detail: res.userInfo,
-              });
-            },
-          });
-        } else {
-          this.setData({
-            modelShow: true,
-          });
-        }
-      },
-    });
-  },
+
   onLoginSuccess(event) {
     this.setData({
       userInfo: event.detail,

@@ -20,5 +20,5 @@
 
 </view>
 <view class="blog-ctrl">
-  <x-blog-ctrl blogId="{{blog._id}}" blog="{{blog}}" blogLike="{{blog.likeNum}}" blogComment="{{commentList.length}}" bind:refreshCommentList="_getBlogDetail" />
+  <x-blog-ctrl blogId="{{blogId}}" blog="{{blog}}"  blogComment="{{commentList.length}}" bind:refreshCommentList="_getBlogDetail" />
 </view>
