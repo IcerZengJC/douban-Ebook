@@ -26,7 +26,7 @@ API整理介绍  [github](https://github.com/zce/douban-api-docs)
 若API请求数据失败
 
 1. API无效
-2. API中要带一个名为apikey的参数，该参数失效
+2. API中要带一个名为apikey的参数，该参数失效，请自寻解决办法
 
 ``` 
   https://api.douban.com/v2/book/4913064?start=0&count=10&apikey=0df993c66c0c636e29ecbb5344252a4a
