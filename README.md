@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Zjc
  * @Date: 2020-09-10 16:42:20
- * @LastEditTime: 2020-09-10 17:29:46
+ * @LastEditTime: 2020-09-10 22:37:08
  * @LastEditors: Do not edit
 -->
 
@@ -17,6 +17,22 @@
 3. 因为用到了云函数，运行需开通云服务，并在开发者工具中同步云函数列表
 
 **tips:** 若有api调用出错，豆瓣api无效所致，当时找可用的api都找了很久
+
+## API介绍
+API文档 [链接](https://douban-api-docs.zce.me/book.html)
+
+API整理介绍  [github](https://github.com/zce/douban-api-docs)
+
+若API请求数据失败
+
+1. API无效
+2. API中要带一个名为apikey的参数，该参数失效
+
+``` 
+  https://api.douban.com/v2/book/4913064?start=0&count=10&apikey=0df993c66c0c636e29ecbb5344252a4a
+```
+
+  代码将请求的apikey封装在 **\miniprogram\request\index.js** 中，自行替换apikey的值
 
 ## 效果展示
 

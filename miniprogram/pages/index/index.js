@@ -18,7 +18,6 @@ Page({
     bookInfo: [],
     bookTags: [],
     param: {
-      apikey: "0df993c66c0c636e29ecbb5344252a4a",
       q: "",
       start: 0,
       count: 10,
@@ -37,7 +36,6 @@ Page({
       bookInfo: [],
       bookTags: [],
       param: {
-        apikey: "0df993c66c0c636e29ecbb5344252a4a",
         q: "",
         start: 0,
         count: 10,
